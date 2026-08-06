@@ -30,6 +30,20 @@ Fire `A`-pekere til GitHub Pages:
 
 > After the org rename, the Pages host is **`datalundno.github.io`** (not `chartvik.github.io`). Update DNS if you still have the old CNAME.
 
+### E-post — `support@datalund.no`
+
+The site lists **support@datalund.no**. There is no public personal address.
+
+Set this up at Domeneshop (**Mine domener → datalund.no → Epost**), not in the GitHub Pages DNS A/CNAME list:
+
+1. Open the **Epost** tab for `datalund.no`.
+2. Create an address (or alias) **`support`**.
+3. Prefer **videresending** to your private inbox (e.g. Gmail) so you receive mail without publishing that address.
+4. Let Domeneshop manage **MX** (and SPF if they offer it). Do not point MX at GitHub.
+5. Send a test to `support@datalund.no` and confirm it arrives.
+
+Optional: add `hello@` or catch-all forwarding the same way.
+
 ### Valgfritt — `datalund.online`
 
 Samme A/CNAME-oppsett, eller en videresending til `https://datalund.no`.
