@@ -10,6 +10,7 @@ Marketing site for [Datalund](https://datalund.no) — free Power BI visuals.
 
 | URL | File |
 | --- | --- |
+| `/demo/` | Interactive Gantt preview (website mock, not Power BI) |
 | `/visuals/gantt/` | Help / product |
 | `/support/` | Support (must differ from Help) |
 | `/privacy/` | Privacy policy |
