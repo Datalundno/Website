@@ -891,7 +891,7 @@ code {
 }
 
 @media (max-width: 720px) {
-  .nav a:not(.nav-cta):not([href='/demo/']) {
+  .nav a:not(.nav-cta):not([href='/showcase/']) {
     display: none;
   }
 

@@ -138,7 +138,7 @@ export function mountDemoGantt(root: HTMLElement): void {
   let tipTask: Task | null = null
 
   root.innerHTML = `
-    <div class="demo-gantt" role="application" aria-label="Interactive Gantt preview">
+    <div class="demo-gantt" role="application" aria-label="DataLund Gantt chart showcase">
       <div class="demo-toolbar">
         <p class="demo-hint">Hover for details · click to select · Ctrl/Cmd multi-select</p>
         <button type="button" class="demo-clear" hidden>Clear selection</button>
@@ -159,7 +159,7 @@ export function mountDemoGantt(root: HTMLElement): void {
         </div>
       </div>
       <div class="demo-tooltip" role="tooltip" hidden></div>
-      <p class="demo-footnote">Website preview with sample data — not live Power BI.</p>
+      <p class="demo-footnote">Website showcase with sample data — not the full Power BI visual.</p>
     </div>
   `
 
