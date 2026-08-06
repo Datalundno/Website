@@ -1,0 +1,5 @@
+# https://datalund.no
+User-agent: *
+Allow: /
+
+Sitemap: https://datalund.no/sitemap.xml

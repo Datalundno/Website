@@ -1,0 +1,10 @@
+/* TEAM */
+Publisher: Datalund
+Site: https://datalund.no/
+Contact: support@datalund.no
+GitHub: https://github.com/Datalundno
+
+/* SITE */
+Standards: HTML5, CSS3, Schema.org
+Components: DataLund Gantt (Power BI custom visual)
+Location: Norway
