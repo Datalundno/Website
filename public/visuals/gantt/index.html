@@ -35,9 +35,10 @@
     "operatingSystem": "Power BI Desktop",
     "isAccessibleForFree": true,
     "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-    "description": "Free Power BI Gantt chart visual for tasks, progress, milestones, and groups on one timeline.",
+    "description": "Free Power BI Gantt chart visual for tasks, progress, milestones, groups, and an optional time window.",
     "url": "https://datalund.no/visuals/gantt/",
-    "downloadUrl": "https://github.com/Datalundno/GANTT/raw/main/ganttChart/downloads/ganttChart.pbiviz",
+    "downloadUrl": "https://datalund.no/downloads/ganttChart.pbiviz",
+    "softwareVersion": "1.7.0.0",
     "publisher": {
       "@type": "Organization",
       "name": "Datalund",
@@ -70,8 +71,9 @@
     <ul>
       <li>Task bars with progress fill</li>
       <li>Milestones (zero duration)</li>
-      <li>Collapsible groups and resource colors</li>
-      <li>Today line and weekend shading</li>
+      <li>Collapsible groups with Expand / Collapse</li>
+      <li>Optional time window (3 / 6 / 9 / 12 months) — Format → General</li>
+      <li>Resource colors, today line, and weekend shading</li>
       <li>Cross-filter and tooltips</li>
       <li>No network calls — runs in the Power BI sandbox</li>
     </ul>
@@ -85,7 +87,12 @@
 
     <p class="actions">
       <a class="btn" href="/demo/">Try demo</a>
-      <a class="btn" href="/#get">Download</a>
+      <a
+        class="btn"
+        href="/downloads/ganttChart.pbiviz"
+        download
+        data-analytics-download="ganttChart.pbiviz"
+      >Download .pbiviz</a>
       <a class="btn ghost" href="/support/">Support</a>
     </p>
   </article>
