@@ -9,7 +9,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  actions: read
 
 concurrency:
   group: pages
@@ -39,7 +38,6 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: dist
-          retention-days: 2
 
   deploy:
     needs: build
@@ -48,77 +46,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # actions/deploy-pages cancels after 10m. Wait longer and do not cancel.
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const MAX_WAIT_MS = 45 * 60 * 1000
-            const INTERVAL_MS = 10_000
-
-            const owner = context.repo.owner
-            const repo = context.repo.repo
-            const runId = context.runId
-
-            const artifacts = await github.paginate(
-              github.rest.actions.listWorkflowRunArtifacts,
-              { owner, repo, run_id: runId, per_page: 100 },
-            )
-            const artifact = artifacts.find((a) => a.name === 'github-pages')
-            if (!artifact) {
-              throw new Error('No github-pages artifact found for this run')
-            }
-
-            const idToken = await core.getIDToken()
-            const buildVersion = context.sha
-
-            core.info(`Creating Pages deployment for artifact ${artifact.id} (${buildVersion})`)
-            const { data: deployment } = await github.request(
-              'POST /repos/{owner}/{repo}/pages/deployments',
-              {
-                owner,
-                repo,
-                artifact_id: artifact.id,
-                pages_build_version: buildVersion,
-                oidc_token: idToken,
-              },
-            )
-
-            const deploymentId =
-              deployment.id ||
-              deployment.status_url?.split('/')?.pop() ||
-              buildVersion
-            const pageUrl = deployment.page_url || 'https://datalund.no/'
-            core.setOutput('page_url', pageUrl)
-            core.info(`Created deployment ID ${deploymentId}`)
-
-            const started = Date.now()
-            const finalErrors = new Set([
-              'deployment_failed',
-              'deployment_perms_error',
-              'deployment_content_failed',
-              'deployment_cancelled',
-              'deployment_lost',
-            ])
-
-            while (Date.now() - started < MAX_WAIT_MS) {
-              await new Promise((r) => setTimeout(r, INTERVAL_MS))
-              const { data: status } = await github.request(
-                'GET /repos/{owner}/{repo}/pages/deployments/{deploymentId}',
-                { owner, repo, deploymentId },
-              )
-              core.info(`Current status: ${status.status}`)
-              if (status.status === 'succeed') {
-                core.info('Pages deployment succeeded')
-                return
-              }
-              if (finalErrors.has(status.status)) {
-                throw new Error(`Pages deployment failed: ${status.status}`)
-              }
-            }
-
-            core.warning(
-              'Timed out waiting for Pages status, but the deployment was not cancelled. It may still go live shortly.',
-            )
-            core.setOutput('page_url', pageUrl)
+        uses: actions/deploy-pages@v4
