@@ -27,7 +27,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <div class="hero-atmosphere" aria-hidden="true">
         <div class="hero-wash"></div>
         <div class="hero-grid"></div>
-        <svg class="hero-viz" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" role="presentation">
+        <svg class="hero-viz" viewBox="0 0 1440 900" preserveAspectRatio="xMaxYMid slice" role="presentation">
           <defs>
             <linearGradient id="barA" x1="0" y1="0" x2="1" y2="0">
               <stop offset="0%" stop-color="#2DD4BF"/>
