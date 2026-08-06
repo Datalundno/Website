@@ -58,6 +58,7 @@
       href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Public+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="/consent.css" />
 
     <script type="application/ld+json">
       {
@@ -289,18 +290,21 @@
                 class="btn btn-primary"
                 href="https://github.com/Datalundno/GANTT/raw/main/ganttChart/downloads/ganttChart.pbiviz"
                 download
+                data-analytics-download="ganttChart.pbiviz"
               >Download .pbiviz</a>
               <a
                 class="btn btn-ghost"
                 href="https://github.com/Datalundno/GANTT/raw/main/ganttChart/downloads/GanttSampleData.xlsx"
                 download
+                data-analytics-download="GanttSampleData.xlsx"
               >Sample Excel</a>
             </div>
             <p class="fineprint">
               Code on <a href="https://github.com/Datalundno/GANTT">GitHub</a> ·
               <a href="/visuals/gantt/">Help</a> ·
               <a href="/support/">Support</a> ·
-              <a href="/privacy/">Privacy</a>
+              <a href="/privacy/">Privacy</a> ·
+              <a href="/privacy/#analytics" data-analytics-preferences>Analytics preferences</a>
             </p>
           </div>
         </section>
@@ -313,6 +317,7 @@
             Power BI visuals ·
             <a href="/support/">Support</a> ·
             <a href="/privacy/">Privacy</a> ·
+            <a href="/privacy/#analytics" data-analytics-preferences>Analytics preferences</a> ·
             <a href="mailto:support@datalund.no">support@datalund.no</a>
           </p>
           <p class="footer-domain">datalund.no</p>
@@ -320,5 +325,6 @@
       </footer>
     </div>
     <script type="module" src="/src/main.ts"></script>
+    <script src="/js/consent-analytics.js" defer></script>
   </body>
 </html>

@@ -1,0 +1,115 @@
+/* Consent banner — shared by homepage CSS import and legal pages */
+
+.consent-banner {
+  position: fixed;
+  z-index: 80;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.consent-inner {
+  pointer-events: auto;
+  max-width: 52rem;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem 1.15rem;
+  background: rgba(244, 250, 247, 0.96);
+  border: 1px solid rgba(15, 61, 54, 0.16);
+  border-radius: 12px;
+  box-shadow: 0 18px 48px rgba(15, 61, 54, 0.14);
+  backdrop-filter: blur(10px);
+  color: #142821;
+}
+
+.consent-title {
+  margin: 0;
+  font-family: 'Bricolage Grotesque', Georgia, serif;
+  font-weight: 700;
+  font-size: 1.05rem;
+  letter-spacing: -0.02em;
+  color: #0f3d36;
+}
+
+.consent-text {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: #3d5a54;
+}
+
+.consent-text a {
+  color: #1a6b5c;
+  text-underline-offset: 0.15em;
+}
+
+.consent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.consent-btn {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 0.55rem 1rem;
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.consent-btn:hover {
+  transform: translateY(-1px);
+}
+
+.consent-btn:focus-visible {
+  outline: 2px solid #2dd4bf;
+  outline-offset: 2px;
+}
+
+.consent-accept {
+  background: #0f3d36;
+  color: #f4faf7;
+}
+
+.consent-accept:hover {
+  background: #1a6b5c;
+}
+
+.consent-decline {
+  background: transparent;
+  color: #0f3d36;
+  border-color: rgba(15, 61, 54, 0.22);
+}
+
+.consent-decline:hover {
+  background: rgba(15, 61, 54, 0.06);
+}
+
+@media (min-width: 720px) {
+  .consent-inner {
+    grid-template-columns: 1fr auto;
+    padding: 1.1rem 1.35rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .consent-btn {
+    transition: none;
+  }
+
+  .consent-btn:hover {
+    transform: none;
+  }
+}

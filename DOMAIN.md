@@ -65,3 +65,14 @@ npm install && npm run build
 ```
 
 Output: `dist`.
+
+## Analytics (Plausible)
+
+Visit and download counts use **Plausible** (cookieless), loaded only after visitor opt-in.
+
+1. Create a site for `datalund.no` at [plausible.io](https://plausible.io) (EU company; or self-host).
+2. Add a custom event / goal named **`Download`** (props include `file`).
+3. No code change needed — the site already loads `script.tagged-events.js` for `datalund.no` after consent.
+4. Optional: enable Plausible’s email reports for weekly visit/download summaries.
+
+Consent UI + script: `public/js/consent-analytics.js`. Privacy copy: `/privacy/#analytics`.
