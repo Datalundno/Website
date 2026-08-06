@@ -30,6 +30,34 @@ Fire `A`-pekere til GitHub Pages:
 
 > After the org rename, the Pages host is **`datalundno.github.io`** (not `chartvik.github.io`). Update DNS if you still have the old CNAME.
 
+### Google Search Console — domain verification
+
+Google **Domain** property for `datalund.no` requires a DNS **TXT** record (HTML meta tags cannot verify a Domain property).
+
+Add this at Domeneshop ([login](https://domeneshop.no/login)):
+
+| Type | Vertsnavn | Verdi |
+| --- | --- | --- |
+| TXT | *(leave empty / `@`)* | `google-site-verification=151pJ3qg6luhPTKhh2yrdRitV5cEjNE8_gt0pPwixuE` |
+
+Steps:
+
+1. **Mine domener** → **datalund.no** → **DNS-pekere**
+2. Click **Vis avanserte innstillinger** (needed for TXT)
+3. Bottom row: Type **TXT**, Vertsnavn empty, paste the value above, green **+**
+4. Wait for DNS (often minutes; can take up to 24–48h)
+5. In Search Console, press **Verify**
+
+Check propagation:
+
+```bash
+dig TXT datalund.no +short
+```
+
+You should see a line containing `google-site-verification=151pJ3qg6luhPTKhh2yrdRitV5cEjNE8_gt0pPwixuE`.
+
+Keep the TXT record after verification (Google may re-check).
+
 ### E-post — `support@datalund.no`
 
 The site lists **support@datalund.no**. There is no public personal address.
