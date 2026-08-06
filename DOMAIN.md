@@ -30,6 +30,34 @@ Fire `A`-pekere til GitHub Pages:
 
 > After the org rename, the Pages host is **`datalundno.github.io`** (not `chartvik.github.io`). Update DNS if you still have the old CNAME.
 
+### Google Search Console — domain verification
+
+Google **Domain** property for `datalund.no` requires a DNS **TXT** record (HTML meta tags cannot verify a Domain property).
+
+Add this at Domeneshop ([login](https://domeneshop.no/login)):
+
+| Type | Vertsnavn | Verdi |
+| --- | --- | --- |
+| TXT | *(leave empty / `@`)* | `google-site-verification=151pJ3qg6luhPTKhh2yrdRitV5cEjNE8_gt0pPwixuE` |
+
+Steps:
+
+1. **Mine domener** → **datalund.no** → **DNS-pekere**
+2. Click **Vis avanserte innstillinger** (needed for TXT)
+3. Bottom row: Type **TXT**, Vertsnavn empty, paste the value above, green **+**
+4. Wait for DNS (often minutes; can take up to 24–48h)
+5. In Search Console, press **Verify**
+
+Check propagation:
+
+```bash
+dig TXT datalund.no +short
+```
+
+You should see a line containing `google-site-verification=151pJ3qg6luhPTKhh2yrdRitV5cEjNE8_gt0pPwixuE`.
+
+Keep the TXT record after verification (Google may re-check).
+
 ### E-post — `support@datalund.no`
 
 The site lists **support@datalund.no**. There is no public personal address.
@@ -65,3 +93,14 @@ npm install && npm run build
 ```
 
 Output: `dist`.
+
+## Analytics (Plausible)
+
+Visit and download counts use **Plausible** (cookieless), loaded only after visitor opt-in.
+
+1. Create a site for `datalund.no` at [plausible.io](https://plausible.io) (EU company; or self-host).
+2. Add a custom event / goal named **`Download`** (props include `file`).
+3. No code change needed — the site already loads `script.tagged-events.js` for `datalund.no` after consent.
+4. Optional: enable Plausible’s email reports for weekly visit/download summaries.
+
+Consent UI + script: `public/js/consent-analytics.js`. Privacy copy: `/privacy/#analytics`.

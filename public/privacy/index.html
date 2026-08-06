@@ -4,9 +4,26 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy — Datalund</title>
-  <meta name="description" content="Privacy policy for Datalund Power BI visuals, including DataLund Gantt." />
+  <meta name="description" content="Privacy policy for Datalund Power BI visuals and datalund.no, including GDPR-compliant website analytics." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0F3D36" />
+  <meta name="author" content="Datalund" />
+  <link rel="canonical" href="https://datalund.no/privacy/" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:site_name" content="Datalund" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://datalund.no/privacy/" />
+  <meta property="og:title" content="Privacy Policy — Datalund" />
+  <meta property="og:description" content="How Datalund handles privacy for Power BI visuals and the datalund.no website." />
+  <meta property="og:image" content="https://datalund.no/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Privacy Policy — Datalund" />
+  <meta name="twitter:description" content="How Datalund handles privacy for Power BI visuals and the datalund.no website." />
+  <meta name="twitter:image" content="https://datalund.no/og-image.png" />
   <link rel="stylesheet" href="/legal.css" />
+  <link rel="stylesheet" href="/consent.css" />
 </head>
 <body>
   <header class="bar">
@@ -19,35 +36,77 @@
   </header>
   <article class="doc">
     <h1>Privacy Policy</h1>
-    <p class="meta"><strong>Last updated:</strong> 6 August 2026 · <strong>Publisher:</strong> Datalund · <a href="https://datalund.no/">datalund.no</a></p>
+    <p class="meta"><strong>Last updated:</strong> 6 August 2026 · <strong>Controller:</strong> Datalund · <a href="https://datalund.no/">datalund.no</a></p>
 
     <div class="callout">
       Datalund visuals (including <strong>DataLund Gantt</strong>) run in the Power BI sandbox.
       They do <strong>not</strong> collect, store, send, or sell personal data.
+      The website may use optional, privacy-friendly analytics only after you consent.
     </div>
+
+    <h2>Who we are</h2>
+    <p>
+      Datalund publishes free Power BI visuals and operates <a href="https://datalund.no/">datalund.no</a>.
+      Contact: <a href="mailto:support@datalund.no">support@datalund.no</a>.
+      This notice covers both the visuals and the website, under the EU GDPR and Norwegian personal data law
+      (including the Personal Data Act).
+    </p>
 
     <h2>What the visual uses</h2>
     <ul>
       <li>Only the fields you bind in the report (tasks, dates, progress, groups, and so on).</li>
       <li>Everything renders locally in Power BI Desktop or the service.</li>
       <li>No outbound network calls.</li>
-      <li>No cookies, ads, analytics, or third-party trackers.</li>
+      <li>No cookies, ads, analytics, or third-party trackers inside the visual.</li>
     </ul>
 
     <h2>Permissions</h2>
     <p>DataLund Gantt asks for no network or storage access, so it cannot reach the internet from the visual.</p>
 
-    <h2>This website</h2>
-    <p>datalund.no is our product and support site. Email is only used to reply. We do not sell contact info. Hosting logs (IP, user agent, time), if any, are for security and uptime.</p>
+    <h2 id="analytics">This website — analytics</h2>
+    <p>
+      We want to know how many people visit datalund.no and how often the Gantt visual (and sample file) is downloaded.
+      Analytics run <strong>only if you accept</strong> the banner (opt-in). You can change your mind anytime via
+      <a href="#analytics" data-analytics-preferences>Analytics preferences</a>.
+    </p>
+    <ul>
+      <li><strong>Tool:</strong> <a href="https://plausible.io/privacy">Plausible Analytics</a> (privacy-friendly, no cookies for measurement).</li>
+      <li><strong>Legal basis:</strong> your consent (GDPR Art. 6(1)(a)).</li>
+      <li><strong>What we measure:</strong> page views (URL, referrer, browser/OS aggregated) and download events (which file was clicked).</li>
+      <li><strong>What we do not do:</strong> advertising, cross-site tracking, selling data, building personal profiles, or fingerprinting.</li>
+      <li><strong>Consent storage:</strong> your Accept/Decline choice is stored in <code>localStorage</code> on your device so we remember it. That storage is used only for consent.</li>
+      <li><strong>Global Privacy Control / Do Not Track:</strong> if your browser sends these signals, we treat that as Decline and do not load analytics.</li>
+      <li><strong>Processor:</strong> Plausible Insights OÜ (EU). See their <a href="https://plausible.io/data-policy">data policy</a>.</li>
+      <li><strong>Retention:</strong> aggregated stats are kept according to our Plausible site settings (typically up to 24 months for trends).</li>
+    </ul>
+    <p>
+      If you decline, the site works the same; we simply do not count your visit or downloads.
+    </p>
+
+    <h2>Hosting and email</h2>
+    <p>
+      The site is hosted on GitHub Pages. Hosting providers may process technical logs (such as IP address, user agent, and time)
+      for security and uptime under legitimate interest (GDPR Art. 6(1)(f)).
+      Email to <a href="mailto:support@datalund.no">support@datalund.no</a> is used only to reply to you. We do not sell contact info.
+    </p>
+
+    <h2>Your rights</h2>
+    <p>Under GDPR you may request access, rectification, erasure, restriction, or objection, and you may withdraw consent at any time (without affecting earlier lawful processing). You may also lodge a complaint with the Norwegian Data Protection Authority (<a href="https://www.datatilsynet.no/">Datatilsynet</a>) or your local EU/EEA supervisory authority.</p>
+    <p>Because our analytics are aggregated and cookieless, we usually cannot identify a single visitor in the stats. Use <a href="#analytics" data-analytics-preferences>Analytics preferences</a> to withdraw website analytics consent on this device.</p>
 
     <h2>Contact</h2>
     <p><a href="mailto:support@datalund.no">support@datalund.no</a> · <a href="/support/">Support</a></p>
 
     <h2>Changes</h2>
-    <p>Important updates will show on this page and in AppSource.</p>
+    <p>Important updates will show on this page and, where relevant, in AppSource.</p>
   </article>
   <footer class="bar foot">
-    <p>© 2026 Datalund · Not affiliated with Microsoft. Power BI is a trademark of Microsoft.</p>
+    <p>
+      © 2026 Datalund ·
+      <a href="#analytics" data-analytics-preferences>Analytics preferences</a> ·
+      Not affiliated with Microsoft. Power BI is a trademark of Microsoft.
+    </p>
   </footer>
+  <script src="/js/consent-analytics.js" defer></script>
 </body>
 </html>
