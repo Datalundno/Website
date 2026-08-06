@@ -1,6 +1,6 @@
 # Datalund website
 
-Marketing site for [Datalund](https://datalund.no) — custom Power BI visualizations.
+Marketing site for [Datalund](https://datalund.no) — free Power BI visuals.
 
 **Repo:** [Datalundno/Website](https://github.com/Datalundno/Website)  
 **Pages:** https://datalundno.github.io/Website/  
