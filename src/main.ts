@@ -18,7 +18,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <a href="#visuals">Visuals</a>
       <a href="#gantt">Gantt</a>
       <a href="/support/">Support</a>
-      <a class="nav-cta" href="#get">Get the visual</a>
+      <a class="nav-cta" href="#get">Download</a>
     </nav>
   </header>
 
@@ -88,24 +88,23 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
       <div class="hero-copy" data-reveal>
         <p class="brand" id="hero-brand">Datalund</p>
-        <h1>Power BI visuals that make timelines readable.</h1>
+        <h1>Gantt charts for Power BI.</h1>
         <p class="lede">
-          Custom visualizations for project work — progress, ownership, and deadlines in one clear view.
+          A clear timeline for tasks, progress, and deadlines.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="#get">Get the Gantt visual</a>
-          <a class="btn btn-ghost" href="#visuals">See what’s shipping</a>
+          <a class="btn btn-primary" href="#get">Download free</a>
+          <a class="btn btn-ghost" href="#gantt">How it works</a>
         </div>
       </div>
     </section>
 
     <section class="section visuals" id="visuals" aria-labelledby="visuals-title">
       <div class="section-inner" data-reveal>
-        <p class="eyebrow">The studio</p>
-        <h2 id="visuals-title">Built for reports people actually use.</h2>
+        <p class="eyebrow">Custom visuals</p>
+        <h2 id="visuals-title">Made for real project reports.</h2>
         <p class="section-lede">
-          Datalund designs Power BI custom visuals with the same care as product UI —
-          dense when needed, calm by default, and tuned for Desktop workflows.
+          Free Power BI visuals you can drop into Desktop and start using.
         </p>
       </div>
     </section>
@@ -113,17 +112,16 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <section class="section feature" id="gantt" aria-labelledby="gantt-title">
       <div class="feature-layout">
         <div class="feature-copy" data-reveal>
-          <p class="eyebrow">Featured visual</p>
+          <p class="eyebrow">Free visual</p>
           <h2 id="gantt-title">DataLund Gantt</h2>
           <p class="section-lede">
-            Grouped tasks, resource colors, progress fills, a today line, hover tooltips,
-            and cross-filtering — packaged as a <code>.pbiviz</code> for Power BI Desktop
-            and the Visualization shop.
+            Tasks on a timeline with progress, groups, colors, and a today line.
+            Works in Power BI Desktop as a <code>.pbiviz</code> file.
           </p>
           <ul class="feature-list">
-            <li>Click bars to cross-filter other visuals</li>
+            <li>Click a bar to filter the rest of the report</li>
             <li>Multi-select with Ctrl / Cmd</li>
-            <li>Tooltips for dates, duration, progress, and custom fields</li>
+            <li>Hover for dates, duration, and progress</li>
           </ul>
         </div>
         <div class="feature-stage" data-reveal aria-hidden="true">
@@ -162,22 +160,22 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <section class="section get" id="get" aria-labelledby="get-title">
       <div class="section-inner get-inner" data-reveal>
-        <p class="eyebrow">Power BI Desktop</p>
-        <h2 id="get-title">Import the visual from a file.</h2>
+        <p class="eyebrow">Install</p>
+        <h2 id="get-title">Add it in Power BI Desktop.</h2>
         <p class="section-lede">
-          Download the package, open a report in Power BI Desktop, and choose
-          <strong>Import a visual from a file</strong>. Resize to ~900×400 for the best read.
+          Download the <code>.pbiviz</code>, then use
+          <strong>Import a visual from a file</strong>.
+          About 900×400 is a good starting size.
         </p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="${GANTT_PBIVIZ}" download>Download DataLund Gantt (.pbiviz)</a>
-          <a class="btn btn-ghost" href="${SAMPLE_XLSX}" download>Sample data (.xlsx)</a>
+          <a class="btn btn-primary" href="${GANTT_PBIVIZ}" download>Download .pbiviz</a>
+          <a class="btn btn-ghost" href="${SAMPLE_XLSX}" download>Sample Excel</a>
         </div>
         <p class="fineprint">
-          Source and updates live on
-          <a href="${REPO_URL}">GitHub</a>.
-          Help: <a href="/visuals/gantt/">product page</a> ·
-          <a href="/support/">support</a> ·
-          <a href="/privacy/">privacy</a>.
+          Code on <a href="${REPO_URL}">GitHub</a> ·
+          <a href="/visuals/gantt/">Help</a> ·
+          <a href="/support/">Support</a> ·
+          <a href="/privacy/">Privacy</a>
         </p>
       </div>
     </section>
@@ -187,7 +185,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <div class="footer-inner" data-reveal>
       <p class="footer-brand">Datalund</p>
       <p class="footer-meta">
-        Custom Power BI visualizations ·
+        Power BI visuals ·
         <a href="/support/">Support</a> ·
         <a href="/privacy/">Privacy</a> ·
         <a href="mailto:support@datalund.no">support@datalund.no</a>
