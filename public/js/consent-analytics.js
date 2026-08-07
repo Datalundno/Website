@@ -4,27 +4,35 @@
  * - No analytics until the visitor opts in
  * - Preference stored in localStorage (strictly necessary for consent)
  * - Honours Global Privacy Control / DNT as a decline
- * - Uses Plausible (cookieless, privacy-friendly) after consent
- * - Tracks page views + download clicks as custom events
+ * - Uses Matomo Cloud (EU, enterprise-grade) after consent
+ * - Cookieless tracker mode + page views + download events
  *
- * Setup: create a site for datalund.no at https://plausible.io
- * (or self-host) and add a "Download" goal for custom events.
+ * Setup:
+ * 1. Create a free trial / plan at https://matomo.cloud
+ * 2. Add website datalund.no and copy the Matomo URL + Site ID
+ * 3. Paste them into MATOMO below (URL must end with /)
  */
 ;(() => {
   const CONSENT_KEY = 'datalund-analytics-consent'
-  const DOMAIN = 'datalund.no'
-  // tagged-events build lets us send Download props from clicks
-  const SCRIPT_SRC = 'https://plausible.io/js/script.tagged-events.js'
+
+  /**
+   * Matomo Cloud settings — replace after account setup.
+   * Example url: 'https://datalund.matomo.cloud/'
+   */
+  const MATOMO = {
+    url: '', // e.g. 'https://YOUR_INSTANCE.matomo.cloud/'
+    siteId: '', // e.g. '1'
+  }
 
   /** @type {'granted' | 'denied' | null} */
   let consent = readConsent()
   let scriptLoaded = false
 
-  window.plausible =
-    window.plausible ||
-    function () {
-      ;(window.plausible.q = window.plausible.q || []).push(arguments)
-    }
+  window._paq = window._paq || []
+
+  function matomoConfigured() {
+    return Boolean(MATOMO.url && MATOMO.siteId && !MATOMO.url.includes('YOUR_INSTANCE'))
+  }
 
   function readConsent() {
     try {
@@ -51,25 +59,49 @@
     return false
   }
 
-  function loadPlausible() {
+  function loadMatomo() {
     if (scriptLoaded) return
+    if (!matomoConfigured()) {
+      console.info(
+        '[Datalund] Matomo is not configured yet. Set MATOMO.url and MATOMO.siteId in /js/consent-analytics.js',
+      )
+      return
+    }
+
     scriptLoaded = true
+    const trackerBase = MATOMO.url.endsWith('/') ? MATOMO.url : `${MATOMO.url}/`
+
+    // Privacy-preserving defaults (still only loaded after opt-in)
+    window._paq.push(['disableCookies'])
+    window._paq.push(['enableHeartBeatTimer', 30])
+    window._paq.push(['trackPageView'])
+    window._paq.push(['enableLinkTracking'])
+    window._paq.push(['setTrackerUrl', `${trackerBase}matomo.php`])
+    window._paq.push(['setSiteId', String(MATOMO.siteId)])
+
     const script = document.createElement('script')
-    script.defer = true
-    script.dataset.domain = DOMAIN
-    script.src = SCRIPT_SRC
+    script.async = true
+    script.src = `${trackerBase}matomo.js`
     document.head.appendChild(script)
   }
 
   function disableAnalytics() {
-    // Stop further queueing; Plausible has no unload API for the script tag.
-    window.plausible = function () {}
+    if (scriptLoaded && window._paq) {
+      window._paq.push(['forgetConsentGiven'])
+      window._paq.push(['deleteCookies'])
+    }
+    // Ignore further pushes if the script already loaded this session
+    window._paq = {
+      push() {
+        /* no-op after decline */
+      },
+    }
     scriptLoaded = false
   }
 
   function trackDownload(file) {
-    if (consent !== 'granted') return
-    window.plausible('Download', { props: { file } })
+    if (consent !== 'granted' || !matomoConfigured()) return
+    window._paq.push(['trackEvent', 'Download', 'click', file])
   }
 
   function bindDownloadClicks(root) {
@@ -100,7 +132,7 @@
     hideBanner()
 
     if (value === 'granted') {
-      loadPlausible()
+      loadMatomo()
       bindDownloadClicks()
     } else {
       disableAnalytics()
@@ -126,7 +158,7 @@
         <div class="consent-copy">
           <p id="datalund-consent-title" class="consent-title">Analytics</p>
           <p id="datalund-consent-desc" class="consent-text">
-            We use privacy-friendly, cookieless analytics to count page visits and
+            We use privacy-friendly analytics (Matomo, cookieless) to count page visits and
             downloads. No ads, no profiling, no sale of data.
             <a href="/privacy/#analytics">Privacy policy</a>
           </p>
@@ -150,7 +182,6 @@
     document.querySelectorAll('[data-analytics-preferences]').forEach((el) => {
       el.addEventListener('click', (event) => {
         event.preventDefault()
-        // Clear stored choice and show the banner again
         try {
           localStorage.removeItem(CONSENT_KEY)
         } catch {
@@ -171,6 +202,13 @@
   function init() {
     bindDownloadClicks()
     initPreferencesLinks()
+
+    if (!matomoConfigured()) {
+      console.info(
+        '[Datalund] Analytics idle until Matomo url + siteId are set in /js/consent-analytics.js',
+      )
+      return
+    }
 
     if (consent === 'granted') {
       applyConsent('granted', { persist: false })
@@ -196,11 +234,11 @@
     init()
   }
 
-  // Public helpers for optional future use
   window.datalundAnalytics = {
     getConsent: () => consent,
     accept: () => applyConsent('granted'),
     decline: () => applyConsent('denied'),
     trackDownload,
+    isConfigured: matomoConfigured,
   }
 })()
