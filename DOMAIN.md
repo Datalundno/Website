@@ -94,13 +94,19 @@ npm install && npm run build
 
 Output: `dist`.
 
-## Analytics (Plausible)
+## Analytics (Matomo Cloud)
 
-Visit and download counts use **Plausible** (cookieless), loaded only after visitor opt-in.
+Visit and download counts use **Matomo Cloud** (cookieless mode), loaded only after visitor opt-in.
+Matomo is the established open-source / EU-friendly analytics platform (closer to “serious” GA replacement than lightweight SaaS counters).
 
-1. Create a site for `datalund.no` at [plausible.io](https://plausible.io) (EU company; or self-host).
-2. Add a custom event / goal named **`Download`** (props include `file`).
-3. No code change needed — the site already loads `script.tagged-events.js` for `datalund.no` after consent.
-4. Optional: enable Plausible’s email reports for weekly visit/download summaries.
+1. Create an account at [matomo.cloud](https://matomo.cloud) and add website `datalund.no`.
+2. Open **Administration → Measurables → Tracking Code** and copy:
+   - Matomo URL (e.g. `https://YOUR_INSTANCE.matomo.cloud/`)
+   - Site ID (usually `1`)
+3. Paste both into `MATOMO.url` and `MATOMO.siteId` in `public/js/consent-analytics.js`, then deploy.
+4. In Matomo, confirm events under **Behaviour → Events** (category `Download`) after a consented test click.
+5. Optional: enable scheduled email reports for visits/downloads.
+
+Until url + siteId are set, the consent banner stays hidden and nothing is tracked.
 
 Consent UI + script: `public/js/consent-analytics.js`. Privacy copy: `/privacy/#analytics`.
