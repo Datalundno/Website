@@ -422,51 +422,25 @@ code {
   box-shadow: var(--shadow-soft);
 }
 
-.stage-chrome {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid var(--line);
-  background: linear-gradient(180deg, #fbfffd, #f0f7f4);
+.stage-frame-video {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: calc(var(--radius) + 6px);
+  overflow: hidden;
 }
 
-.stage-chrome span {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: rgba(15, 61, 54, 0.18);
-}
-
-.stage-chrome span:nth-child(1) { background: #f4a4a0; }
-.stage-chrome span:nth-child(2) { background: #fbbf24; }
-.stage-chrome span:nth-child(3) { background: #2dd4bf; }
-
-.stage-chrome p {
-  margin: 0 0 0 auto;
-  font-size: 0.78rem;
-  color: var(--ink-soft);
-}
-
-.mini-gantt {
+.feature-video {
+  display: block;
   width: 100%;
   height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #e8f2ee;
+  border-radius: calc(var(--radius) + 6px);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--line);
 }
-
-.mini-bar {
-  transform-box: fill-box;
-  transform-origin: left center;
-}
-
-.feature-stage.is-visible .mini-bar {
-  animation: bar-grow 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
-}
-
-.feature-stage.is-visible .mini-bar.d1 { animation-delay: 0.05s; }
-.feature-stage.is-visible .mini-bar.d2 { animation-delay: 0.15s; }
-.feature-stage.is-visible .mini-bar.d3 { animation-delay: 0.25s; }
-.feature-stage.is-visible .mini-bar.d4 { animation-delay: 0.35s; }
-.feature-stage.is-visible .mini-bar.d5 { animation-delay: 0.45s; }
 
 .feature-cta {
   margin-top: 1.5rem;
@@ -600,12 +574,24 @@ code {
   .hero-viz .bar,
   .hero-viz .today,
   .hero-viz .canopy,
-  .feature-stage.is-visible .mini-bar,
   [data-reveal] {
     animation: none !important;
     transition: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .feature-video {
+    display: none;
+  }
+
+  .stage-frame-video {
+    aspect-ratio: 16 / 9;
+    border-radius: calc(var(--radius) + 6px);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid var(--line);
+    background:
+      url("/videos/datalund-gantt-showcase.jpg") center / cover no-repeat;
   }
 
   .btn:hover {
