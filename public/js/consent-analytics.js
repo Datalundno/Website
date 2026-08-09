@@ -8,15 +8,12 @@
  * - Ads storage stays denied; analytics_storage only after Accept
  * - Tracks page views + download clicks as GA4 events
  *
- * Setup:
- * 1. Create a GA4 property for https://datalund.no in Google Analytics
- * 2. Copy the Measurement ID (G-XXXXXXXXXX)
- * 3. Paste it into GA_MEASUREMENT_ID below and deploy
+ * GA4 Measurement ID: G-E74PBCR7V3
  */
 ;(() => {
   const CONSENT_KEY = 'datalund-analytics-consent'
-  /** @type {string} e.g. 'G-XXXXXXXXXX' */
-  const GA_MEASUREMENT_ID = ''
+  /** @type {string} */
+  const GA_MEASUREMENT_ID = 'G-E74PBCR7V3'
 
   /** @type {'granted' | 'denied' | null} */
   let consent = readConsent()

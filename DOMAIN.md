@@ -99,12 +99,10 @@ Output: `dist`.
 Visit and download counts use **Google Analytics 4**, loaded only after visitor opt-in.
 No other third-party trackers (Plausible/Matomo/etc.) are used.
 
-1. In [Google Analytics](https://analytics.google.com/), create a GA4 property for `https://datalund.no`.
-2. Copy the **Measurement ID** (`G-XXXXXXXXXX`).
-3. Paste it into `GA_MEASUREMENT_ID` in `public/js/consent-analytics.js`, then deploy.
-4. In GA4 → **Admin → Data collection / Data retention**, disable Google signals / ads features you do not need, and set retention as short as practical.
-5. Confirm events: page views plus `download` (with `file_name`) after a consented test click.
+Measurement ID in use: **`G-E74PBCR7V3`** (`public/js/consent-analytics.js`).
 
-Until the Measurement ID is set, the consent banner stays hidden and nothing is tracked.
+1. In GA4 → **Admin → Data collection / Data retention**, disable Google signals / ads features you do not need, and set retention as short as practical.
+2. Confirm events: page views plus `download` (with `file_name`) after a consented test click on the live site.
+3. To rotate the ID later, update `GA_MEASUREMENT_ID` in `public/js/consent-analytics.js` and redeploy.
 
 Consent UI + script: `public/js/consent-analytics.js`. Privacy copy: `/privacy/#analytics`.
