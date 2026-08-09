@@ -1,30 +1,34 @@
 /**
- * Datalund site analytics — EU/EEA (Norway) consent-gated.
+ * Datalund site analytics — EU/EEA (Norway) consent-gated Google Analytics 4.
  *
- * - No analytics until the visitor opts in
+ * - Removes third-party counters other than GA4
+ * - No GA until the visitor opts in
  * - Preference stored in localStorage (strictly necessary for consent)
  * - Honours Global Privacy Control / DNT as a decline
- * - Uses Plausible (cookieless, privacy-friendly) after consent
- * - Tracks page views + download clicks as custom events
+ * - Ads storage stays denied; analytics_storage only after Accept
+ * - Tracks page views + download clicks as GA4 events
  *
- * Setup: create a site for datalund.no at https://plausible.io
- * (or self-host) and add a "Download" goal for custom events.
+ * GA4 Measurement ID: G-E74PBCR7V3
  */
 ;(() => {
   const CONSENT_KEY = 'datalund-analytics-consent'
-  const DOMAIN = 'datalund.no'
-  // tagged-events build lets us send Download props from clicks
-  const SCRIPT_SRC = 'https://plausible.io/js/script.tagged-events.js'
+  /** @type {string} */
+  const GA_MEASUREMENT_ID = 'G-E74PBCR7V3'
 
   /** @type {'granted' | 'denied' | null} */
   let consent = readConsent()
   let scriptLoaded = false
 
-  window.plausible =
-    window.plausible ||
+  window.dataLayer = window.dataLayer || []
+  window.gtag =
+    window.gtag ||
     function () {
-      ;(window.plausible.q = window.plausible.q || []).push(arguments)
+      window.dataLayer.push(arguments)
     }
+
+  function gaConfigured() {
+    return /^G-[A-Z0-9]+$/.test(GA_MEASUREMENT_ID)
+  }
 
   function readConsent() {
     try {
@@ -51,25 +55,52 @@
     return false
   }
 
-  function loadPlausible() {
-    if (scriptLoaded) return
+  function loadGoogleAnalytics() {
+    if (scriptLoaded || !gaConfigured()) return
     scriptLoaded = true
+
+    // Consent already granted before load; keep ads off.
+    window.gtag('consent', 'default', {
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+    })
+    window.gtag('js', new Date())
+    window.gtag('config', GA_MEASUREMENT_ID, {
+      anonymize_ip: true,
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+    })
+
     const script = document.createElement('script')
-    script.defer = true
-    script.dataset.domain = DOMAIN
-    script.src = SCRIPT_SRC
+    script.async = true
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`
     document.head.appendChild(script)
   }
 
   function disableAnalytics() {
-    // Stop further queueing; Plausible has no unload API for the script tag.
-    window.plausible = function () {}
+    if (scriptLoaded && typeof window.gtag === 'function') {
+      window.gtag('consent', 'update', {
+        analytics_storage: 'denied',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+      })
+    }
+    window.gtag = function () {
+      /* no-op after decline */
+    }
     scriptLoaded = false
   }
 
   function trackDownload(file) {
-    if (consent !== 'granted') return
-    window.plausible('Download', { props: { file } })
+    if (consent !== 'granted' || !gaConfigured()) return
+    window.gtag('event', 'download', {
+      file_name: file,
+      link_text: file,
+      outbound: false,
+    })
   }
 
   function bindDownloadClicks(root) {
@@ -100,7 +131,7 @@
     hideBanner()
 
     if (value === 'granted') {
-      loadPlausible()
+      loadGoogleAnalytics()
       bindDownloadClicks()
     } else {
       disableAnalytics()
@@ -126,8 +157,8 @@
         <div class="consent-copy">
           <p id="datalund-consent-title" class="consent-title">Analytics</p>
           <p id="datalund-consent-desc" class="consent-text">
-            We use privacy-friendly, cookieless analytics to count page visits and
-            downloads. No ads, no profiling, no sale of data.
+            We use Google Analytics to count page visits and downloads if you accept.
+            No ads personalisation. You can change this anytime.
             <a href="/privacy/#analytics">Privacy policy</a>
           </p>
         </div>
@@ -150,7 +181,6 @@
     document.querySelectorAll('[data-analytics-preferences]').forEach((el) => {
       el.addEventListener('click', (event) => {
         event.preventDefault()
-        // Clear stored choice and show the banner again
         try {
           localStorage.removeItem(CONSENT_KEY)
         } catch {
@@ -171,6 +201,13 @@
   function init() {
     bindDownloadClicks()
     initPreferencesLinks()
+
+    if (!gaConfigured()) {
+      console.info(
+        '[Datalund] Analytics idle until GA_MEASUREMENT_ID (G-XXXXXXXXXX) is set in /js/consent-analytics.js',
+      )
+      return
+    }
 
     if (consent === 'granted') {
       applyConsent('granted', { persist: false })
@@ -196,11 +233,11 @@
     init()
   }
 
-  // Public helpers for optional future use
   window.datalundAnalytics = {
     getConsent: () => consent,
     accept: () => applyConsent('granted'),
     decline: () => applyConsent('denied'),
     trackDownload,
+    isConfigured: gaConfigured,
   }
 })()
