@@ -94,13 +94,17 @@ npm install && npm run build
 
 Output: `dist`.
 
-## Analytics (Plausible)
+## Analytics (Google Analytics 4)
 
-Visit and download counts use **Plausible** (cookieless), loaded only after visitor opt-in.
+Visit and download counts use **Google Analytics 4**, loaded only after visitor opt-in.
+No other third-party trackers (Plausible/Matomo/etc.) are used.
 
-1. Create a site for `datalund.no` at [plausible.io](https://plausible.io) (EU company; or self-host).
-2. Add a custom event / goal named **`Download`** (props include `file`).
-3. No code change needed — the site already loads `script.tagged-events.js` for `datalund.no` after consent.
-4. Optional: enable Plausible’s email reports for weekly visit/download summaries.
+1. In [Google Analytics](https://analytics.google.com/), create a GA4 property for `https://datalund.no`.
+2. Copy the **Measurement ID** (`G-XXXXXXXXXX`).
+3. Paste it into `GA_MEASUREMENT_ID` in `public/js/consent-analytics.js`, then deploy.
+4. In GA4 → **Admin → Data collection / Data retention**, disable Google signals / ads features you do not need, and set retention as short as practical.
+5. Confirm events: page views plus `download` (with `file_name`) after a consented test click.
+
+Until the Measurement ID is set, the consent banner stays hidden and nothing is tracked.
 
 Consent UI + script: `public/js/consent-analytics.js`. Privacy copy: `/privacy/#analytics`.
