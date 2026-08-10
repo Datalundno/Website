@@ -24,13 +24,13 @@ Per-visual Excels plus a shared suite workbook (`DatalundSuiteSample.xlsx`) are 
 python3 scripts/generate-sample-data.py
 ```
 
+Column headers use the **shared suite field names** (Start Date, End Date, Progress as 0–100, and so on) so Gantt, Resource Load, and Task List bind the same way. See [DOMAIN.md](./DOMAIN.md) for the field table.
+
 After updating any branded `.pbiviz`, rebuild the suite zip:
 
 ```bash
 bash scripts/pack-suite-zip.sh
 ```
-
-See [DOMAIN.md](./DOMAIN.md) for binding notes.
 
 ## Develop
 
