@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate Datalund suite + per-visual sample workbooks from one source of truth.
+"""Generate DataLund suite + per-visual sample workbooks from one source of truth.
 
 Outputs (Website repo):
   public/downloads/DatalundSuiteSample.xlsx   — Projects + Tasks (suite demo)
@@ -140,7 +140,7 @@ def build_suite() -> Path:
     add_howto(
         ws_h,
         [
-            "Datalund suite sample — one workbook for Gantt, Resource Load, and Task List",
+            "DataLund suite sample — one workbook for Gantt, Resource Load, and Task List",
             "",
             "1. Power BI Desktop → Get data → Excel workbook → this file.",
             "2. Load both Projects and Tasks. Relate Tasks[Project] → Projects[Project] (many-to-one).",

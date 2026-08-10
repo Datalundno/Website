@@ -1,5 +1,5 @@
 /* TEAM */
-Publisher: Datalund
+Publisher: DataLund
 Site: https://datalund.no/
 Contact: support@datalund.no
 GitHub: https://github.com/Datalundno
