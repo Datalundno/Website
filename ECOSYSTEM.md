@@ -83,21 +83,31 @@ Project managers will only keep a short list of columns current. **Waste columns
 
 ### In the starter Excel (Website)
 
-**Projects** (Task List):
+Two grains — **do not copy the same attribute onto both sheets**.
 
-`Project · RAG · Group · Project lead · Progress · Start Date · End Date`
+**Projects** (Task List — portfolio row):
 
-**Tasks** (Gantt + Resource Load):
+`Project · RAG · Project lead · Progress · Start Date · End Date`
+
+**Tasks** (Gantt + Resource Load — assignment row):
 
 `Task · Start Date · End Date · Progress · Group · Resource · Project`
+
+| Column | Lives on | Why |
+| --- | --- | --- |
+| `Project` on Tasks | Tasks only as **link** | Relate `Tasks[Project] → Projects[Project]` so Task List can filter the page |
+| `Project lead` | Projects | Who owns the project |
+| `Resource` | Tasks | Who does the task (different person / well) |
+| `Group` | Tasks in this starter | Gantt collapse / phase on assignments — not duplicated on Projects |
 
 ### Not in starters (still supported by visuals)
 
 - **Duration** — optional later if someone has days instead of End Date  
 - **Tooltips** — optional later (milestones, obstacles, notes)  
-- **RAG on the Tasks sheet** — current starter keeps RAG on Projects; add to Tasks only if a visual’s job needs task-level status in the sample  
+- **Group on Projects** — optional later for Task List phase sections  
+- **RAG on the Tasks sheet** — add only if a visual’s job needs task-level status in the sample  
 
-If you ship or sync sample data from a visual repo, **match this column set** unless you are intentionally extending the starter for a new shared need (update this file). Do not reintroduce unused columns into the default starter.
+If you ship or sync sample data from a visual repo, **match this column set** unless you are intentionally extending the starter for a new shared need (update this file). Do not reintroduce unused or duplicated columns into the default starter.
 
 Source of truth for generated files: `Datalundno/Website` → `scripts/generate-sample-data.py`.
 
