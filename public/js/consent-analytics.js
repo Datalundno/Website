@@ -1,5 +1,5 @@
 /**
- * Datalund site analytics — EU/EEA (Norway) consent-gated Google Analytics 4.
+ * DataLund site analytics — EU/EEA (Norway) consent-gated Google Analytics 4.
  *
  * - Removes third-party counters other than GA4
  * - No GA until the visitor opts in
@@ -204,7 +204,7 @@
 
     if (!gaConfigured()) {
       console.info(
-        '[Datalund] Analytics idle until GA_MEASUREMENT_ID (G-XXXXXXXXXX) is set in /js/consent-analytics.js',
+        '[DataLund] Analytics idle until GA_MEASUREMENT_ID (G-XXXXXXXXXX) is set in /js/consent-analytics.js',
       )
       return
     }

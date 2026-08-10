@@ -1,7 +1,7 @@
 {
-  "name": "Datalund",
-  "short_name": "Datalund",
-  "description": "Free Power BI visuals from Datalund — starting with DataLund Gantt.",
+  "name": "DataLund",
+  "short_name": "DataLund",
+  "description": "Free Power BI visuals from DataLund — starting with DataLund Gantt.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
