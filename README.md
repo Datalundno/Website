@@ -6,6 +6,8 @@ Marketing site for [DataLund](https://datalund.no) — free Power BI visuals.
 **Pages:** https://datalundno.github.io/Website/  
 **Custom domain:** [datalund.no](https://datalund.no)
 
+**Ecosystem contract (start here for any visual agent):** [ECOSYSTEM.md](./ECOSYSTEM.md) — shared fields, density, Color by, starter columns, modular-but-one rules, and paste-ready prompts for existing and **new** visuals.
+
 ## AppSource legal pages (copied from `public/` on build)
 
 | URL | File |
@@ -24,13 +26,13 @@ Per-visual Excels plus a shared suite workbook (`DatalundSuiteSample.xlsx`) are 
 python3 scripts/generate-sample-data.py
 ```
 
+Column headers use the **shared suite field names** (Start Date, End Date, Progress as 0–100, and so on) so Gantt, Resource Load, and Task List bind the same way. Each workbook includes a branded **Start here** sheet. See [DOMAIN.md](./DOMAIN.md) for the field table.
+
 After updating any branded `.pbiviz`, rebuild the suite zip:
 
 ```bash
 bash scripts/pack-suite-zip.sh
 ```
-
-See [DOMAIN.md](./DOMAIN.md) for binding notes.
 
 ## Develop
 
