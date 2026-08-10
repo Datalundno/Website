@@ -84,10 +84,12 @@ Samme A/CNAME-oppsett, eller en videresending til `https://datalund.no`.
 4. Confirm these AppSource URLs resolve:
    - https://datalund.no/visuals/gantt/
    - https://datalund.no/visuals/resource-load/
+   - https://datalund.no/visuals/task-list/
    - https://datalund.no/support/
    - https://datalund.no/privacy/
    - https://datalund.no/downloads/ganttChart.pbiviz
    - https://datalund.no/downloads/resourceLoad.pbiviz
+   - https://datalund.no/downloads/taskList.pbiviz
 
 ## Lokal build
 
