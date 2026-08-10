@@ -114,19 +114,19 @@ Edit `scripts/generate-sample-data.py`, re-run, then commit the four `.xlsx` fil
 
 ### Shared suite field columns
 
-Starter Excels only include columns PMs keep up to date:
+Starter Excels use **two grains** and avoid duplicating the same attribute on both sheets:
 
-| Column | Suite role | Notes |
+| Column | Suite role | Where in starter |
 | --- | --- | --- |
-| Task / Project | `task` | Task List display: **Project** |
-| Start Date | `startDate` | |
-| End Date | `endDate` | Prefer End Date in starters |
-| Progress | `progress` | **0–100** in samples (visuals also accept 0–1) |
-| Group | `group` | Phase / parent |
-| Resource / Project lead | `resource` | Task List display: **Project lead** |
-| RAG | `status` | Optional suite role (Task List uses it today) |
+| Task / Project | `task` | Project on **Projects**; Task on **Tasks** (Tasks also has Project as **link only**) |
+| Start Date | `startDate` | Both grains (portfolio dates vs assignment dates) |
+| End Date | `endDate` | Both grains |
+| Progress | `progress` | Both grains (**0–100** in samples; visuals also accept 0–1) |
+| Group | `group` | **Tasks only** in starter (Gantt sections) |
+| Resource / Project lead | `resource` | Project lead on **Projects**; Resource on **Tasks** |
+| RAG | `status` | **Projects only** in starter |
 
-**Not in starters** (visuals still support them): Duration, Tooltips. Add those later if needed — do not put unused columns in the starter model.
+**Not in starters** (visuals still support them): Duration, Tooltips, Group on Projects.
 
 ## Lokal build
 

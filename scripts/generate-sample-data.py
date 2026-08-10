@@ -61,11 +61,14 @@ THIN = Border(
     bottom=Side(style="thin", color=LINE),
 )
 
-# Core columns only — what PMs update. Visuals still accept Duration / Tooltips later.
+# Two grains, no duplicated attributes.
+# Projects = portfolio row (Task List). Tasks = assignment row (Gantt / Resource Load).
+# Project on Tasks is only the link key (relate Tasks[Project] → Projects[Project]).
+# Project lead (portfolio owner) ≠ Resource (task assignee).
+# Group lives on Tasks only in this starter (Gantt collapse) — do not copy it onto Projects.
 PROJECT_HEADERS = [
     "Project",
     "RAG",
-    "Group",
     "Project lead",
     "Progress",
     "Start Date",
@@ -84,12 +87,12 @@ TASK_HEADERS = [
 
 # Small starter portfolio. Progress is 0–100. Dates around Aug 2026.
 PROJECTS = [
-    # Project, RAG, Group, Project lead, Progress, Start Date, End Date
-    ("North Sea Hub", "Green", "Delivery", "Ada Ng", 72, date(2026, 6, 11), date(2026, 9, 19)),
-    ("Arctic Link", "Amber", "Delivery", "Bo Berg", 45, date(2026, 5, 12), date(2026, 8, 30)),
-    ("Yard Retrofit", "Red", "Initiation", "Cara Diaz", 18, date(2026, 7, 11), date(2026, 8, 20)),
-    ("Digital Twin v2", "Green", "Build", "Dan Okonkwo", 88, date(2026, 4, 12), date(2026, 8, 25)),
-    ("Port Expansion", "Amber", "Plan", "Finn Olsen", 12, date(2026, 8, 15), date(2027, 2, 6)),
+    # Project, RAG, Project lead, Progress, Start Date, End Date
+    ("North Sea Hub", "Green", "Ada Ng", 72, date(2026, 6, 11), date(2026, 9, 19)),
+    ("Arctic Link", "Amber", "Bo Berg", 45, date(2026, 5, 12), date(2026, 8, 30)),
+    ("Yard Retrofit", "Red", "Cara Diaz", 18, date(2026, 7, 11), date(2026, 8, 20)),
+    ("Digital Twin v2", "Green", "Dan Okonkwo", 88, date(2026, 4, 12), date(2026, 8, 25)),
+    ("Port Expansion", "Amber", "Finn Olsen", 12, date(2026, 8, 15), date(2027, 2, 6)),
 ]
 
 TASKS = [
@@ -227,7 +230,7 @@ def build_suite_start(ws: Worksheet) -> None:
     paint_banner(
         ws,
         "DataLund suite sample",
-        "Seven columns. Replace the rows with your projects and tasks.",
+        "Two grains — portfolio vs assignments. Each attribute lives on one sheet.",
         cols=5,
     )
     write_start_block(
@@ -236,13 +239,18 @@ def build_suite_start(ws: Worksheet) -> None:
             ("title", "Quick start"),
             ("step", "1. Import the three .pbiviz files from datalund.no"),
             ("step", "2. Load Projects and Tasks — relate Tasks[Project] → Projects[Project]"),
-            ("step", "3. Bind matching column names (see below)"),
+            ("step", "3. Bind from the sheet that owns the column (see below)"),
             ("blank", ""),
-            ("title", "What to maintain"),
-            ("body", "Projects → DataLund Task List: Project, RAG, Group, Project lead, Progress, Start Date, End Date"),
-            ("body", "Tasks → Gantt + Resource Load: Task, Start Date, End Date, Progress, Group, Resource, Project"),
+            ("title", "What to maintain (no duplicates)"),
+            ("body", "Projects (Task List): Project · RAG · Project lead · Progress · Start Date · End Date"),
+            ("body", "Tasks (Gantt + Resource Load): Task · Start Date · End Date · Progress · Group · Resource · Project"),
+            ("blank", ""),
+            ("title", "How the sheets connect"),
+            ("body", "Tasks[Project] is only the link to Projects — not a second project name to redesign."),
+            ("body", "Project lead = who owns the project. Resource = who does the task. Different people, different wells."),
+            ("body", "Group lives on Tasks (Gantt sections). Do not copy Group onto Projects in this starter."),
+            ("muted", "Gantt Resource well → Tasks[Resource]. Never put Project in the Resource well."),
             ("muted", "Progress is 0–100. RAG is Red / Amber / Green (or Rød / Gul / Grønn)."),
-            ("muted", "Same start and end date = milestone. Duration and Tooltips are optional later — not in this starter."),
             ("blank", ""),
             ("body", "Put Task List on the page, click a project — Gantt and Resource Load follow."),
             ("blank", ""),
@@ -250,7 +258,7 @@ def build_suite_start(ws: Worksheet) -> None:
             ("muted", "Free Power BI visuals · support@datalund.no"),
         ],
     )
-    set_col_widths(ws, [88, 12, 12, 12, 12])
+    set_col_widths(ws, [92, 12, 12, 12, 12])
 
 
 def build_visual_start(ws: Worksheet, visual: str, subtitle: str, steps: list[tuple[str, str]]) -> None:
@@ -271,7 +279,7 @@ def build_suite() -> Path:
         "Projects",
         PROJECT_HEADERS,
         PROJECTS,
-        widths=[18, 10, 12, 14, 10, 12, 12],
+        widths=[18, 10, 14, 10, 12, 12],
         tab_color=MINT,
     )
     add_data_sheet(
@@ -301,6 +309,7 @@ def build_gantt() -> Path:
             ("step", "1. Import ganttChart.pbiviz"),
             ("step", "2. Load Tasks"),
             ("step", "3. Bind Task, Start Date, End Date — then Progress, Group, Resource"),
+            ("muted", "Resource well → Resource (assignee). Do not put Project in Resource."),
             ("blank", ""),
             ("muted", "Same columns as Resource Load. Full suite page → DatalundSuiteSample.xlsx"),
             ("blank", ""),
@@ -359,14 +368,15 @@ def build_task_list() -> Path:
     build_visual_start(
         ws0,
         "Task List",
-        "Core project columns only — swap in your own rows",
+        "Portfolio columns only — swap in your own rows",
         [
             ("title", "Quick start"),
             ("step", "1. Import taskList.pbiviz"),
             ("step", "2. Load Projects"),
-            ("step", "3. Bind Project, RAG, Group, Project lead, Progress, Start Date, End Date"),
+            ("step", "3. Bind Project, RAG, Project lead, Progress, Start Date, End Date"),
             ("blank", ""),
-            ("muted", "Project = Task well · Project lead = Resource well. Full suite → DatalundSuiteSample.xlsx"),
+            ("muted", "Project = Task well · Project lead = Resource well."),
+            ("muted", "Group is optional later (phase sections). Full suite → DatalundSuiteSample.xlsx"),
             ("blank", ""),
             ("link", "https://datalund.no/visuals/task-list/"),
         ],
@@ -376,7 +386,7 @@ def build_task_list() -> Path:
         "Projects",
         PROJECT_HEADERS,
         PROJECTS,
-        widths=[18, 10, 12, 14, 10, 12, 12],
+        widths=[18, 10, 14, 10, 12, 12],
         tab_color=MINT,
     )
     path = OUT / "TaskListSampleData.xlsx"
