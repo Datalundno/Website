@@ -1,16 +1,42 @@
-# DataLund ecosystem — agent brief
+# DataLund ecosystem contract
 
-Give this file to agents working on **Gantt**, **Resource Load**, **Task List**, or the **Website**.
+**This is the starting point for a unified DataLund visual ecosystem.**
 
-**Mindset:** one ecosystem, modular visuals. Same field names, same density language, same starter model — each visual still does **one job** and ships as its own `.pbiviz`.
+Canonical contract for **existing** suite visuals and **every new visual**. Copy this file into the visual repo (or point the agent at the Website raw URL) before any implementation work.
+
+| | |
+| --- | --- |
+| **Source of truth** | `Datalundno/Website` → [`ECOSYSTEM.md`](./ECOSYSTEM.md) |
+| **Applies to** | Gantt · Resource Load · Task List · **any future DataLund visual** · Website sync |
+| **Wins over** | Older `SUITE.md` / per-visual kickoffs when they disagree on fields, density, Color by, or starters |
+
+**Mindset:** one ecosystem, modular visuals. Same inputs, same density language, same starter model — each visual still does **one job** and ships as its own `.pbiviz`.
 
 | Visual | One job |
 | --- | --- |
 | **Gantt** | *When* — tasks on a timeline |
 | **Resource Load** | *Who is busy* — people on tasks over time |
 | **Task List** | *What’s in the portfolio* — browse + select to cross-filter |
+| **New visuals** | One new question on the same page — never a second way to bind the same columns |
 
 Do **not** merge visuals into one mega-visual. Do **not** invent parallel field names, density presets, or sample column headers.
+
+---
+
+## 0) New visuals (read first)
+
+Before scaffolding a new `.pbiviz`:
+
+1. **Name the one job** in one sentence (*When / Who / What / …*). If it overlaps an existing visual, extend that visual or stop.
+2. **Reuse suite field role `name`s** from §1. Only add a new role when no existing role fits — document it here in a follow-up Website PR.
+3. **Ship Density** Compact / Comfortable / Large / Custom (§3) from day one.
+4. **Timeline / bar visuals:** Format → General → **Color by** (`colorBy`) per §4.
+5. **Do not add RAG / `status`** unless the visual’s job is portfolio status (Task List). Prefer Tooltips or the Task List for status.
+6. **Starter / docs** teach the **PM-maintained** columns (§2). Duration and Tooltips are optional later, not default sample columns.
+7. **Cross-filter** with the suite so the page feels one; stay modular in packaging (`website-sync/`, own AppSource listing).
+8. Open a **focused PR for this visual only**; update `ECOSYSTEM.md` on Website if you introduce a new shared contract.
+
+Paste prompt for a **new** visual: §9.
 
 ---
 
@@ -28,12 +54,12 @@ Stable `capabilities.json` **`name`** values. Display names may be friendlier; *
 | `group` | Group | Grouping | Phase / parent |
 | `resource` | Resource · **Project lead** (Task List) | Grouping | Person / team |
 | `tooltipFields` | Tooltips | Grouping | Extra detail; keep optional |
-| `status` | **RAG** (Task List) | Grouping | Suite extension — Task List today |
+| `status` | **RAG** (Task List) | Grouping | Suite extension — Task List only |
 
 ### Display-name rules
 
-- Timeline visuals (Gantt, Resource Load): use the suite defaults (**Task**, **Resource**, **Start Date**, …).
-- Task List: Lists / PMO labels are OK (**Project**, **Project lead**, **RAG**) as long as role `name`s stay as above.
+- Timeline visuals (Gantt, Resource Load, future timelines): suite defaults (**Task**, **Resource**, **Start Date**, …).
+- List / portfolio visuals: Lists / PMO labels are OK (**Project**, **Project lead**, **RAG**) if role `name`s stay as above.
 - Do not invent `Start` / `Estimated end` / `Assignee` as role names.
 
 ### Value shapes people already use
@@ -94,9 +120,9 @@ Format → **General → Density**. Same names and numbers everywhere.
 
 ---
 
-## 4) Format pane: Color by (mandatory for timeline visuals)
+## 4) Format pane: Color by (mandatory for timeline / bar visuals)
 
-Gantt and Resource Load must use the **same control identity** so the suite feels one in Format → General.
+Timeline and bar-style visuals use the **same control identity** in Format → General.
 
 | | Contract |
 | --- | --- |
@@ -111,10 +137,11 @@ Gantt and Resource Load must use the **same control identity** so the suite feel
 | --- | --- | --- |
 | **Gantt** | `default` · `resource` · `group` · `task` | How bars pick their fill |
 | **Resource Load** | `single` · `task` · `concurrency` | Single fill, by task name, or concurrency warn |
+| **New timeline visuals** | Document values in the visual README; still use `colorBy` | |
 
-**Migration:** if the visual still has `colorByResource` (bool) or `colorMode`, rename to `colorBy` and map old persisted values in settings load so existing reports do not reset silently.
+**Migration (existing visuals):** if the visual still has `colorByResource` (bool) or `colorMode`, rename to `colorBy` and map old persisted values in settings load so existing reports do not reset silently.
 
-Task List does **not** need this control unless it gains bar coloring later. RAG chips stay status-driven, not a Color by enum.
+Task List does **not** need this control. RAG chips stay status-driven, not a Color by enum. Do **not** add RAG / `status` to Gantt, Resource Load, or other non-list visuals.
 
 ---
 
@@ -124,18 +151,18 @@ Task List does **not** need this control unless it gains bar coloring later. RAG
 
 - One job per visual; clear landing page when required fields are missing.
 - Reuse chrome language with siblings (today line, weekend shading, bar corners, label pane) where it fits the job.
-- Cross-filter / cross-highlight so Task List → Gantt → Resource Load feel like one page.
+- Cross-filter / cross-highlight so Task List → Gantt → Resource Load (and future visuals) feel like one page.
 - Brand as **DataLund** (`datalund.no`); support → `support@datalund.no`.
 - Ship website updates via `website-sync/` (or equivalent) with matching help Fields copy.
 
 ### Don’t
 
 - Don’t rename suite roles to be “clearer” for one visual.
-- Don’t add **RAG / `status`** to Gantt or Resource Load — that stays Task List only.
+- Don’t add **RAG / `status`** outside Task List.
 - Don’t invent alternate Format names for Color by (`colorMode`, `colorByResource`, …).
 - Don’t add dashboard clutter (stats strips, multi-widgets) inside a single visual.
 - Don’t fork sample column names per visual.
-- Don’t change Density preset names or table values without updating **all** suite visuals + Website docs.
+- Don’t change Density preset names or table values without updating **all** suite visuals + this file on Website.
 
 ---
 
@@ -143,10 +170,10 @@ Task List does **not** need this control unless it gains bar coloring later. RAG
 
 Before opening a PR, confirm:
 
-- [ ] Role `name`s match the table in §1  
+- [ ] Role `name`s match the table in §1 (new roles only with an `ECOSYSTEM.md` update)  
 - [ ] Progress accepts 0–1 and 0–100  
 - [ ] Density presets match §3  
-- [ ] Timeline visuals: Format → General → **Color by** uses property `colorBy` (§4); migrate old keys if needed  
+- [ ] Timeline / bar visuals: Format → General → **Color by** uses property `colorBy` (§4); migrate old keys if needed  
 - [ ] Landing / README bind steps use **Start Date** + **End Date** (Duration as optional later)  
 - [ ] Sample / website-sync columns match §2 if you touch samples  
 - [ ] Help copy (if synced) lists core fields first; Duration / Tooltips as “also supported later”  
@@ -161,7 +188,8 @@ When behaviour or capabilities change:
 1. Update the visual repo (capabilities, converter, README).  
 2. Package branded `.pbiviz` (+ white-label if applicable).  
 3. Refresh `website-sync/` help HTML + downloads to match **core fields** wording.  
-4. Website agent regenerates starters from `scripts/generate-sample-data.py` if column contracts change (they should not change lightly).
+4. Website agent regenerates starters from `scripts/generate-sample-data.py` if column contracts change (they should not change lightly).  
+5. If you change a **shared** contract, update this `ECOSYSTEM.md` in the same effort (or a paired Website PR).
 
 Canonical product URLs:
 
@@ -172,9 +200,49 @@ Canonical product URLs:
 
 ---
 
-## 8) Kickoff prompt (paste for visual agents)
+## 8) Prompt — existing visuals (Gantt / Resource Load / Task List)
 
-> Follow `ECOSYSTEM.md` (DataLund). One job for this visual; stay modular. Do not rename suite field role names. Prefer End Date over Duration in docs and samples. Density = Compact / Comfortable / Large / Custom with the suite table. Timeline visuals: Format → General → Color by must use property `colorBy` (migrate `colorMode` / `colorByResource`). Do not add RAG/`status` outside Task List. Starter samples only include PM-maintained columns (no Tooltip / Duration columns by default). Progress accepts 0–1 or 0–100. Open a focused PR for this visual only; sync Website help/samples if field UX changes.
+Paste this to agents on the current suite repos. Point them at this file (or paste the full `ECOSYSTEM.md`).
+
+```
+Follow the DataLund ecosystem contract in ECOSYSTEM.md (Website repo: Datalundno/Website).
+
+Goal: stay modular but feel like one suite on a report page.
+
+Mandatory:
+- Do not rename suite field role names (task, startDate, endDate, duration, progress, group, resource, tooltipFields; status/RAG = Task List only).
+- Prefer End Date over Duration in docs and samples. Progress accepts 0–1 or 0–100.
+- Density = Compact / Comfortable / Large / Custom with the suite table values — do not invent other preset names.
+- Timeline visuals (Gantt, Resource Load): Format → General → Color by must use property name `colorBy` (display name "Color by"). Migrate old `colorMode` / `colorByResource` and map persisted settings so reports do not reset.
+- Do not add RAG/status outside Task List.
+- Starter/sample columns must match the PM-maintained set in ECOSYSTEM.md (no Duration or Tooltip columns in the default starter).
+- One job for this visual only. Focused PR for this repo; website-sync if field UX or Format labels change.
+
+Audit this visual against ECOSYSTEM.md §6 checklist and implement any gaps.
+```
+
+---
+
+## 9) Prompt — new visuals
+
+Paste this when starting a **new** DataLund visual.
+
+```
+You are building a new DataLund Power BI visual. Read and follow ECOSYSTEM.md in Datalundno/Website first — that file is the ecosystem contract.
+
+Rules:
+- One job only (one sentence). Do not merge into Gantt, Resource Load, or Task List.
+- Reuse existing suite field role names. Add a new role only if nothing fits — then document it by updating ECOSYSTEM.md on Website.
+- Density presets Compact / Comfortable / Large / Custom from day one (suite table).
+- If this is a timeline/bar visual: Format → General → Color by with property `colorBy`.
+- Do not add RAG/status unless this visual’s job is portfolio status like Task List.
+- Docs and samples teach PM-maintained columns only (see ECOSYSTEM.md §2). Duration and Tooltips are optional later.
+- Cross-filter with the suite; ship as its own .pbiviz + website-sync pack.
+- Brand: DataLund / datalund.no / support@datalund.no.
+- Open a focused PR for this visual only.
+
+First reply with: the one-job sentence, which suite fields you will bind, and any proposed new role names (needs ECOSYSTEM.md update).
+```
 
 ---
 
@@ -182,9 +250,9 @@ Canonical product URLs:
 
 | Doc | Where | Role |
 | --- | --- | --- |
-| `SUITE.md` | GANTT repo | Original density + field-role seed |
-| `ECOSYSTEM.md` | Website repo (this file) | Living ecosystem contract for all agents |
+| **`ECOSYSTEM.md`** | Website (this file) | **Living ecosystem contract — start here** |
+| `SUITE.md` | GANTT repo | Historical density + field-role seed; defer to this file on conflict |
 | `DOMAIN.md` | Website | Hosting, downloads, sample generation |
 | `RESOURCE_LOAD.md` / `TASK_LIST.md` | Visual kickoffs | Per-visual scope (must not contradict this file) |
 
-If a kickoff brief and this file disagree, **this file wins** for field names, density, Color by, and starter columns.
+If a kickoff brief and this file disagree, **this file wins** for field names, density, Color by, starter columns, and new-visual rules.
