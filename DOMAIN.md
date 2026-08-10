@@ -140,9 +140,9 @@ Personal white-label builds — different GUID / no DataLund branding. Same beha
 | --- | --- |
 | URL | https://datalund.no/downloads/wl/GanttChart.pbiviz |
 | File | `public/downloads/wl/GanttChart.pbiviz` |
-| Upstream | https://github.com/Datalundno/GANTT/releases/download/whitelabel-1.8.0.0/GanttChart.pbiviz |
+| Upstream | https://github.com/Datalundno/GANTT/releases/download/whitelabel-1.8.1.0/GanttChart.pbiviz |
 | Display name | Gantt Chart |
-| Version | 1.8.0.0 |
+| Version | 1.8.1.0 |
 
 ### Resource Load
 
@@ -152,7 +152,7 @@ Personal white-label builds — different GUID / no DataLund branding. Same beha
 | File | `public/downloads/wl/ResourceLoad.pbiviz` |
 | Upstream | https://github.com/Datalundno/Resource-Load/raw/main/downloads/wl/ResourceLoad.pbiviz |
 | Display name | Resource Load |
-| Version | 1.0.0.0 |
+| Version | 1.0.0.0 (field-binding fix) |
 
 ### Task List
 
@@ -160,8 +160,8 @@ Personal white-label builds — different GUID / no DataLund branding. Same beha
 | --- | --- |
 | URL | https://datalund.no/downloads/wl/TaskList.pbiviz |
 | File | `public/downloads/wl/TaskList.pbiviz` |
-| Upstream | https://github.com/Datalundno/Task-List/releases/download/whitelabel-1.0.0.0/TaskList.pbiviz |
+| Upstream | https://github.com/Datalundno/Task-List/releases/download/whitelabel-1.0.1.0/TaskList.pbiviz |
 | Display name | Task List |
-| Version | 1.0.0.0 |
+| Version | 1.0.1.0 |
 
 Not linked from home/help/nav/sitemap. `robots.txt` disallows `/downloads/wl/`. Do not advertise these URLs publicly.
