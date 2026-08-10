@@ -103,10 +103,12 @@ python3 scripts/generate-sample-data.py
 
 | File | Use |
 | --- | --- |
-| `public/downloads/DatalundSuiteSample.xlsx` | Projects + Tasks — build a suite page (Task List filters Gantt / Resource Load) |
-| `public/downloads/GanttSampleData.xlsx` | Gantt-only extract |
-| `public/downloads/ResourceLoadSampleData.xlsx` | Resource Load-only extract |
-| `public/downloads/TaskListSampleData.xlsx` | Task List-only extract |
+| `public/downloads/DatalundSuiteSample.xlsx` | Branded starter — **Start here** + Projects + Tasks (Task List filters Gantt / Resource Load) |
+| `public/downloads/GanttSampleData.xlsx` | Gantt-only starter |
+| `public/downloads/ResourceLoadSampleData.xlsx` | Resource Load-only starter |
+| `public/downloads/TaskListSampleData.xlsx` | Task List-only starter |
+
+Each workbook opens on a branded **Start here** sheet (quick start + bind minimums), then a styled data sheet with filters, frozen headers, and RAG coloring. Keep the column headers when you replace sample rows with your own data.
 
 Edit `scripts/generate-sample-data.py`, re-run, then commit the four `.xlsx` files together so they do not drift.
 
