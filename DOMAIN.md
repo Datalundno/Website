@@ -169,9 +169,9 @@ Personal white-label builds — different GUID / no DataLund branding. Same beha
 | --- | --- |
 | URL | https://datalund.no/downloads/wl/ResourceLoad.pbiviz |
 | File | `public/downloads/wl/ResourceLoad.pbiviz` |
-| Upstream | https://github.com/Datalundno/Resource-Load/raw/main/downloads/wl/ResourceLoad.pbiviz |
+| Upstream | https://github.com/Datalundno/Resource-Load/raw/cursor/ecosystem-colorby-audit-3e6a/downloads/wl/ResourceLoad.pbiviz |
 | Display name | Resource Load |
-| Version | 1.0.0.0 (field-binding fix) |
+| Version | 1.0.0.0 (ecosystem Color by) |
 
 ### Task List
 
@@ -179,8 +179,8 @@ Personal white-label builds — different GUID / no DataLund branding. Same beha
 | --- | --- |
 | URL | https://datalund.no/downloads/wl/TaskList.pbiviz |
 | File | `public/downloads/wl/TaskList.pbiviz` |
-| Upstream | https://github.com/Datalundno/Task-List/releases/download/whitelabel-1.0.1.0/TaskList.pbiviz |
+| Upstream | https://github.com/Datalundno/Task-List/raw/main/taskList/downloads/wl/TaskList.pbiviz |
 | Display name | Task List |
-| Version | 1.0.1.0 |
+| Version | 1.0.3.0 |
 
 Not linked from home/help/nav/sitemap. `robots.txt` disallows `/downloads/wl/`. Do not advertise these URLs publicly.
