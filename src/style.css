@@ -661,17 +661,17 @@ code {
   }
 
   .suite-inner {
-    width: min(1180px, 100%);
+    width: min(1240px, 100%);
   }
 }
 
 @media (min-width: 1440px) {
   .suite-inner {
-    width: min(1320px, 100%);
+    width: min(1380px, 100%);
   }
 
   .carousel-slide.is-active {
-    grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1.25fr);
+    grid-template-columns: minmax(17rem, 0.72fr) minmax(0, 1.28fr);
     gap: 1.75rem 2.75rem;
   }
 }
@@ -686,13 +686,13 @@ code {
   }
 
   .suite-inner {
-    width: min(1440px, 100%);
+    width: min(1520px, 100%);
   }
 }
 
 @media (min-width: 1920px) {
   .suite-inner {
-    width: min(1560px, 100%);
+    width: min(1680px, 100%);
   }
 }
 
