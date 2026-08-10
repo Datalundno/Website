@@ -130,9 +130,11 @@ Measurement ID in use: **`G-E74PBCR7V3`** (`public/js/consent-analytics.js`).
 
 Consent UI + script: `public/js/consent-analytics.js`. Privacy copy: `/privacy/#analytics`.
 
-## Private unbranded download (not linked on the site)
+## Private unbranded downloads (not linked on the site)
 
-Personal **Gantt Chart** (white-label) — mirror of GANTT release `whitelabel-1.8.0.0`. Density included; different GUID / no DataLund branding.
+Personal white-label builds — different GUID / no DataLund branding. Same behaviour as the branded visuals.
+
+### Gantt Chart
 
 | | |
 | --- | --- |
@@ -142,4 +144,24 @@ Personal **Gantt Chart** (white-label) — mirror of GANTT release `whitelabel-1
 | Display name | Gantt Chart |
 | Version | 1.8.0.0 |
 
-Not linked from home/help/nav/sitemap. `robots.txt` disallows `/downloads/wl/`. Do not advertise this URL publicly.
+### Resource Load
+
+| | |
+| --- | --- |
+| URL | https://datalund.no/downloads/wl/ResourceLoad.pbiviz |
+| File | `public/downloads/wl/ResourceLoad.pbiviz` |
+| Upstream | https://github.com/Datalundno/Resource-Load/raw/main/downloads/wl/ResourceLoad.pbiviz |
+| Display name | Resource Load |
+| Version | 1.0.0.0 |
+
+### Task List
+
+| | |
+| --- | --- |
+| URL | https://datalund.no/downloads/wl/TaskList.pbiviz |
+| File | `public/downloads/wl/TaskList.pbiviz` |
+| Upstream | https://github.com/Datalundno/Task-List/releases/download/whitelabel-1.0.0.0/TaskList.pbiviz |
+| Display name | Task List |
+| Version | 1.0.0.0 |
+
+Not linked from home/help/nav/sitemap. `robots.txt` disallows `/downloads/wl/`. Do not advertise these URLs publicly.
