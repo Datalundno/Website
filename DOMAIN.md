@@ -90,6 +90,7 @@ Samme A/CNAME-oppsett, eller en videresending til `https://datalund.no`.
    - https://datalund.no/downloads/ganttChart.pbiviz
    - https://datalund.no/downloads/resourceLoad.pbiviz
    - https://datalund.no/downloads/taskList.pbiviz
+   - https://datalund.no/downloads/DataLundSuite.zip
    - https://datalund.no/downloads/DatalundSuiteSample.xlsx
 
 ## Sample data

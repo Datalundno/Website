@@ -24,6 +24,12 @@ Per-visual Excels plus a shared suite workbook (`DatalundSuiteSample.xlsx`) are 
 python3 scripts/generate-sample-data.py
 ```
 
+After updating any branded `.pbiviz`, rebuild the suite zip:
+
+```bash
+bash scripts/pack-suite-zip.sh
+```
+
 See [DOMAIN.md](./DOMAIN.md) for binding notes.
 
 ## Develop
