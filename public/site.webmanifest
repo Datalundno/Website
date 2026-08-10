@@ -1,7 +1,7 @@
 {
   "name": "DataLund",
   "short_name": "DataLund",
-  "description": "Free Power BI visuals from DataLund — starting with DataLund Gantt.",
+  "description": "Free Power BI visuals from DataLund: Gantt, Resource Load, and Task List.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
