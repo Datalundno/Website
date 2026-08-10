@@ -149,7 +149,8 @@ code {
 
 .hero {
   position: relative;
-  min-height: 100svh;
+  /* Cap height on tall desktops so the suite isn't pushed far down. */
+  min-height: clamp(34rem, 92svh, 48rem);
   display: grid;
   align-items: center;
   overflow: clip;
@@ -159,7 +160,7 @@ code {
 .hero-atmosphere {
   position: absolute;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
 }
 
 .hero-wash {
@@ -168,10 +169,10 @@ code {
   background:
     linear-gradient(
       105deg,
-      rgba(232, 242, 238, 0.96) 0%,
-      rgba(232, 242, 238, 0.88) 28%,
-      rgba(232, 242, 238, 0.45) 52%,
-      rgba(244, 250, 247, 0.12) 78%,
+      rgba(232, 242, 238, 0.98) 0%,
+      rgba(232, 242, 238, 0.94) 34%,
+      rgba(232, 242, 238, 0.55) 56%,
+      rgba(244, 250, 247, 0.14) 78%,
       transparent 100%
     ),
     radial-gradient(ellipse 55% 50% at 78% 42%, rgba(45, 212, 191, 0.2), transparent 62%);
@@ -196,6 +197,7 @@ code {
   opacity: 0.72;
   transform: translate(8%, -2%) scale(0.92);
   transform-origin: 70% 45%;
+  pointer-events: none;
 }
 
 .hero-viz .bar {
@@ -247,7 +249,9 @@ code {
 }
 
 .hero-copy {
-  width: min(720px, 100%);
+  position: relative;
+  z-index: 1;
+  width: min(640px, 100%);
   padding:
     clamp(5.5rem, 12vh, 7.5rem)
     clamp(1.25rem, 4vw, 3rem)
@@ -615,22 +619,70 @@ code {
 
 @media (min-width: 900px) {
   .carousel-slide.is-active {
-    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    grid-template-columns: minmax(16rem, 0.95fr) minmax(0, 1.05fr);
     gap: 1.75rem 2rem;
   }
 
   .hero-copy {
-    padding-top: clamp(4.5rem, 10vh, 6.5rem);
-    padding-bottom: clamp(2rem, 5vh, 3.5rem);
+    padding-top: clamp(5rem, 11vh, 7rem);
+    padding-bottom: clamp(2.5rem, 6vh, 4rem);
   }
 
+  /* Keep bars clear of the brand column on mid-width desktops. */
   .hero-viz {
-    opacity: 0.68;
-    transform: translate(12%, -4%) scale(0.88);
+    opacity: 0.62;
+    transform: translate(18%, -2%) scale(0.82);
   }
 
   .hero-viz .canopy {
     opacity: 0.12;
+  }
+
+  .hero-wash {
+    background:
+      linear-gradient(
+        105deg,
+        rgba(232, 242, 238, 0.98) 0%,
+        rgba(232, 242, 238, 0.95) 38%,
+        rgba(232, 242, 238, 0.62) 58%,
+        rgba(244, 250, 247, 0.16) 80%,
+        transparent 100%
+      ),
+      radial-gradient(ellipse 55% 50% at 80% 42%, rgba(45, 212, 191, 0.18), transparent 62%);
+  }
+}
+
+@media (min-width: 1280px) {
+  .carousel-slide.is-active {
+    grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  }
+
+  .hero-viz {
+    opacity: 0.68;
+    transform: translate(14%, -4%) scale(0.88);
+  }
+
+  .hero-wash {
+    background:
+      linear-gradient(
+        105deg,
+        rgba(232, 242, 238, 0.97) 0%,
+        rgba(232, 242, 238, 0.9) 30%,
+        rgba(232, 242, 238, 0.48) 54%,
+        rgba(244, 250, 247, 0.12) 78%,
+        transparent 100%
+      ),
+      radial-gradient(ellipse 55% 50% at 78% 42%, rgba(45, 212, 191, 0.2), transparent 62%);
+  }
+}
+
+@media (min-width: 1600px) {
+  .hero {
+    min-height: clamp(36rem, 78vh, 46rem);
+  }
+
+  .hero-viz {
+    transform: translate(16%, -4%) scale(0.9);
   }
 }
 
