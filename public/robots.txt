@@ -1,5 +1,6 @@
 # https://datalund.no
 User-agent: *
 Allow: /
+Disallow: /downloads/wl/
 
 Sitemap: https://datalund.no/sitemap.xml
