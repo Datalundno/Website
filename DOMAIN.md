@@ -109,12 +109,13 @@ Consent UI + script: `public/js/consent-analytics.js`. Privacy copy: `/privacy/#
 
 ## Private unbranded download (not linked on the site)
 
-Personal **Gantt Chart** (white-label) build — same features as branded 1.8.0.0 including Density, different GUID / no DataLund branding.
+Personal **Gantt Chart** (white-label) — mirror of GANTT release `whitelabel-1.8.0.0`. Density included; different GUID / no DataLund branding.
 
 | | |
 | --- | --- |
 | URL | https://datalund.no/downloads/wl/GanttChart.pbiviz |
 | File | `public/downloads/wl/GanttChart.pbiviz` |
+| Upstream | https://github.com/Datalundno/GANTT/releases/download/whitelabel-1.8.0.0/GanttChart.pbiviz |
 | Display name | Gantt Chart |
 | Version | 1.8.0.0 |
 
