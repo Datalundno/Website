@@ -83,8 +83,11 @@ Samme A/CNAME-oppsett, eller en videresending til `https://datalund.no`.
 3. Enable **Enforce HTTPS** when DNS is green.
 4. Confirm these AppSource URLs resolve:
    - https://datalund.no/visuals/gantt/
+   - https://datalund.no/visuals/resource-load/
    - https://datalund.no/support/
    - https://datalund.no/privacy/
+   - https://datalund.no/downloads/ganttChart.pbiviz
+   - https://datalund.no/downloads/resourceLoad.pbiviz
 
 ## Lokal build
 
