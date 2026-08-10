@@ -169,7 +169,7 @@ Personal white-label builds — different GUID / no DataLund branding. Same beha
 | --- | --- |
 | URL | https://datalund.no/downloads/wl/ResourceLoad.pbiviz |
 | File | `public/downloads/wl/ResourceLoad.pbiviz` |
-| Upstream | https://github.com/Datalundno/Resource-Load/raw/cursor/ecosystem-colorby-audit-3e6a/downloads/wl/ResourceLoad.pbiviz |
+| Upstream | https://github.com/Datalundno/Resource-Load/raw/main/downloads/wl/ResourceLoad.pbiviz |
 | Display name | Resource Load |
 | Version | 1.0.0.0 (ecosystem Color by) |
 
