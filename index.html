@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Datalund — Free Power BI visuals (Gantt &amp; Resource Load)</title>
+    <title>Datalund — Free Power BI visuals (Gantt, Resource Load &amp; Task List)</title>
     <meta
       name="description"
-      content="Datalund makes free Power BI visuals. DataLund Gantt for the plan, DataLund Resource Load for who is busy when."
+      content="Datalund makes free Power BI visuals. Gantt for when, Resource Load for who is busy, Task List for what’s in the portfolio."
     />
     <meta
       name="keywords"
-      content="Datalund, DataLund Gantt chart, DataLund Resource Load, Power BI Gantt chart, free Power BI visual, resource load, pbiviz"
+      content="Datalund, DataLund Gantt chart, DataLund Resource Load, DataLund Task List, Power BI Gantt chart, free Power BI visual, RAG status, pbiviz"
     />
     <meta name="author" content="Datalund" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -35,7 +35,7 @@
     <meta property="og:title" content="Datalund — Free Power BI visuals" />
     <meta
       property="og:description"
-      content="DataLund Gantt for the plan. DataLund Resource Load for who is busy when. Free Power BI visuals."
+      content="Gantt for when. Resource Load for who is busy. Task List for what’s in the portfolio. Free Power BI visuals."
     />
     <meta property="og:image" content="https://datalund.no/og-image.png" />
     <meta property="og:image:type" content="image/png" />
@@ -47,7 +47,7 @@
     <meta name="twitter:title" content="Datalund — Free Power BI visuals" />
     <meta
       name="twitter:description"
-      content="DataLund Gantt for the plan. DataLund Resource Load for who is busy when. Free Power BI visuals."
+      content="Gantt for when. Resource Load for who is busy. Task List for what’s in the portfolio. Free Power BI visuals."
     />
     <meta name="twitter:image" content="https://datalund.no/og-image.png" />
     <meta name="twitter:image:alt" content="Datalund — Free Power BI visuals" />
@@ -81,7 +81,8 @@
             "sameAs": [
               "https://github.com/Datalundno",
               "https://github.com/Datalundno/GANTT",
-              "https://github.com/Datalundno/Resource-Load"
+              "https://github.com/Datalundno/Resource-Load",
+              "https://github.com/Datalundno/Task-List"
             ]
           },
           {
@@ -89,7 +90,7 @@
             "@id": "https://datalund.no/#website",
             "name": "Datalund",
             "url": "https://datalund.no/",
-            "description": "Free Power BI visuals from Datalund — DataLund Gantt and DataLund Resource Load.",
+            "description": "Free Power BI visuals from Datalund — Gantt, Resource Load, and Task List.",
             "publisher": { "@id": "https://datalund.no/#organization" },
             "inLanguage": "en"
           },
@@ -98,7 +99,7 @@
             "@id": "https://datalund.no/#webpage",
             "url": "https://datalund.no/",
             "name": "Datalund — Free Power BI visuals",
-            "description": "Datalund makes free Power BI visuals. DataLund Gantt for the plan, DataLund Resource Load for who is busy when.",
+            "description": "Datalund makes free Power BI visuals. Gantt for when, Resource Load for who is busy, Task List for what’s in the portfolio.",
             "isPartOf": { "@id": "https://datalund.no/#website" },
             "about": { "@id": "https://datalund.no/#organization" },
             "primaryImageOfPage": {
@@ -142,6 +143,24 @@
             "softwareVersion": "1.0.0.0",
             "publisher": { "@id": "https://datalund.no/#organization" },
             "isAccessibleForFree": true
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://datalund.no/visuals/task-list/#software",
+            "name": "DataLund Task List",
+            "applicationCategory": "BusinessApplication",
+            "operatingSystem": "Power BI Desktop",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "description": "Free Power BI visual to browse and select projects with RAG status, progress, groups, and cross-filtering.",
+            "url": "https://datalund.no/visuals/task-list/",
+            "downloadUrl": "https://datalund.no/downloads/taskList.pbiviz",
+            "softwareVersion": "1.0.0.0",
+            "publisher": { "@id": "https://datalund.no/#organization" },
+            "isAccessibleForFree": true
           }
         ]
       }
@@ -160,6 +179,7 @@
           <a href="#visuals">Visuals</a>
           <a href="#gantt">Gantt</a>
           <a href="#resource-load">Resource Load</a>
+          <a href="#task-list">Task List</a>
           <a href="/support/">Support</a>
           <a class="nav-cta" href="#get">Download</a>
         </nav>
@@ -244,19 +264,25 @@
             <h2 id="visuals-title">Made for real project reports.</h2>
             <p class="section-lede">
               Free Power BI visuals you can drop into Desktop and start using.
-              Use DataLund Gantt for the plan. Use Resource Load for the people.
+              Gantt for when. Resource Load for who is busy. Task List for what’s in the portfolio.
             </p>
             <ul class="suite-links">
               <li>
                 <a href="#gantt">
                   <span class="suite-name">DataLund Gantt chart</span>
-                  <span class="suite-blurb">What happens when</span>
+                  <span class="suite-blurb">When — tasks on a timeline</span>
                 </a>
               </li>
               <li>
                 <a href="#resource-load">
                   <span class="suite-name">DataLund Resource Load</span>
-                  <span class="suite-blurb">Who is busy when — swimlanes and load badges</span>
+                  <span class="suite-blurb">Who is busy — people on tasks</span>
+                </a>
+              </li>
+              <li>
+                <a href="#task-list">
+                  <span class="suite-name">DataLund Task List</span>
+                  <span class="suite-blurb">What’s in the portfolio — browse + select rows to filter the page</span>
                 </a>
               </li>
             </ul>
@@ -378,6 +404,81 @@
           </div>
         </section>
 
+        <section class="section feature" id="task-list" aria-labelledby="task-list-title">
+          <div class="feature-layout">
+            <div class="feature-copy" data-reveal>
+              <p class="eyebrow">Free visual</p>
+              <h2 id="task-list-title">DataLund Task List</h2>
+              <p class="section-lede">
+                A project pulse list for Power BI — pick rows to filter Gantt and the rest of the page.
+              </p>
+              <ul class="feature-list">
+                <li>Scannable rows with click-to-filter selection</li>
+                <li>Optional RAG status chips (Red / Amber / Green)</li>
+                <li>Progress bar when Progress is bound</li>
+                <li>Density presets shared with DataLund Gantt</li>
+              </ul>
+              <div class="cta-row feature-cta">
+                <a
+                  class="btn btn-primary"
+                  href="/downloads/taskList.pbiviz"
+                  download
+                  data-analytics-download="taskList.pbiviz"
+                >Download .pbiviz</a>
+                <a
+                  class="btn btn-ghost"
+                  href="/downloads/TaskListSampleData.xlsx"
+                  download
+                  data-analytics-download="TaskListSampleData.xlsx"
+                >Sample Excel</a>
+                <a class="btn btn-ghost" href="/visuals/task-list/">Help</a>
+              </div>
+            </div>
+            <div class="feature-stage" data-reveal aria-hidden="true">
+              <div class="stage-frame">
+                <div class="stage-chrome">
+                  <span></span><span></span><span></span>
+                  <p>Task list · sample</p>
+                </div>
+                <svg class="mini-gantt" viewBox="0 0 640 360" role="presentation">
+                  <rect width="640" height="360" fill="#F4FAF7"/>
+                  <g font-family="Public Sans, sans-serif" font-size="11" fill="#3D5A54">
+                    <text x="24" y="36">Delivery</text>
+                  </g>
+                  <!-- row 1 -->
+                  <rect x="20" y="52" width="600" height="56" rx="8" fill="#fff" stroke="#0F3D36" stroke-opacity="0.1"/>
+                  <circle cx="48" cy="80" r="8" fill="#ef4444"/>
+                  <text x="68" y="76" font-family="Public Sans, sans-serif" font-size="14" font-weight="600" fill="#142821">Northwind rollout</text>
+                  <text x="68" y="96" font-family="Public Sans, sans-serif" font-size="11" fill="#3D5A54">Phase 2 · 62%</text>
+                  <rect x="420" y="72" width="160" height="10" rx="5" fill="#e8f2ee"/>
+                  <rect x="420" y="72" width="100" height="10" rx="5" fill="#2DD4BF"/>
+                  <!-- row 2 -->
+                  <rect x="20" y="120" width="600" height="56" rx="8" fill="#fff" stroke="#0F3D36" stroke-opacity="0.1"/>
+                  <circle cx="48" cy="148" r="8" fill="#FBBF24"/>
+                  <text x="68" y="144" font-family="Public Sans, sans-serif" font-size="14" font-weight="600" fill="#142821">Contoso migration</text>
+                  <text x="68" y="164" font-family="Public Sans, sans-serif" font-size="11" fill="#3D5A54">Cutover · 41%</text>
+                  <rect x="420" y="140" width="160" height="10" rx="5" fill="#e8f2ee"/>
+                  <rect x="420" y="140" width="66" height="10" rx="5" fill="#1A6B5C"/>
+                  <!-- row 3 selected -->
+                  <rect x="20" y="188" width="600" height="56" rx="8" fill="#E8F2EE" stroke="#2DD4BF" stroke-width="2"/>
+                  <circle cx="48" cy="216" r="8" fill="#34d399"/>
+                  <text x="68" y="212" font-family="Public Sans, sans-serif" font-size="14" font-weight="600" fill="#142821">Fabrikam pilot</text>
+                  <text x="68" y="232" font-family="Public Sans, sans-serif" font-size="11" fill="#3D5A54">Pilot · 88%</text>
+                  <rect x="420" y="208" width="160" height="10" rx="5" fill="#dceee7"/>
+                  <rect x="420" y="208" width="140" height="10" rx="5" fill="#0F3D36"/>
+                  <!-- row 4 -->
+                  <rect x="20" y="256" width="600" height="56" rx="8" fill="#fff" stroke="#0F3D36" stroke-opacity="0.1"/>
+                  <circle cx="48" cy="284" r="8" fill="#FBBF24"/>
+                  <text x="68" y="280" font-family="Public Sans, sans-serif" font-size="14" font-weight="600" fill="#142821">Adventure Works CRM</text>
+                  <text x="68" y="300" font-family="Public Sans, sans-serif" font-size="11" fill="#3D5A54">Discovery · 24%</text>
+                  <rect x="420" y="276" width="160" height="10" rx="5" fill="#e8f2ee"/>
+                  <rect x="420" y="276" width="38" height="10" rx="5" fill="#7CFFB2"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="section get" id="get" aria-labelledby="get-title">
           <div class="section-inner get-inner" data-reveal>
             <p class="eyebrow">Install</p>
@@ -386,7 +487,7 @@
               Download the <code>.pbiviz</code>, then use
               <strong>Import a visual from a file</strong>.
               About 900×400 is a good starting size.
-              For Resource Load, use the download on that section above.
+              For Resource Load and Task List, use the downloads on those sections above.
             </p>
             <div class="cta-row">
               <a
@@ -405,8 +506,10 @@
             <p class="fineprint">
               Gantt on <a href="https://github.com/Datalundno/GANTT">GitHub</a> ·
               Resource Load on <a href="https://github.com/Datalundno/Resource-Load">GitHub</a> ·
+              Task List on <a href="https://github.com/Datalundno/Task-List">GitHub</a> ·
               <a href="/visuals/gantt/">Gantt help</a> ·
               <a href="/visuals/resource-load/">Resource Load help</a> ·
+              <a href="/visuals/task-list/">Task List help</a> ·
               <a href="/support/">Support</a> ·
               <a href="/privacy/">Privacy</a> ·
               <a href="/privacy/#analytics" data-analytics-preferences>Analytics preferences</a>
