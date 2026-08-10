@@ -114,21 +114,19 @@ Edit `scripts/generate-sample-data.py`, re-run, then commit the four `.xlsx` fil
 
 ### Shared suite field columns
 
-Sample column headers match the Power BI field wells (and Lists / PMO names people already use):
+Starter Excels only include columns PMs keep up to date:
 
 | Column | Suite role | Notes |
 | --- | --- | --- |
 | Task / Project | `task` | Task List display: **Project** |
 | Start Date | `startDate` | |
-| End Date | `endDate` | Or Duration |
-| Duration | `duration` | Days; used when End Date is blank |
-| Progress | `progress` | Samples use **0–100** (visuals also accept 0–1) |
+| End Date | `endDate` | Prefer End Date in starters |
+| Progress | `progress` | **0–100** in samples (visuals also accept 0–1) |
 | Group | `group` | Phase / parent |
 | Resource / Project lead | `resource` | Task List display: **Project lead** |
-| RAG | `status` | Task List only; Red/Amber/Green (+ NO tokens) |
-| Tooltips | `tooltipFields` | Next milestone, Obstacles, Notes |
+| RAG | `status` | Task List / Projects sheet only |
 
-Do not invent alternate date labels (`Start` / `Estimated end`) in new samples — keep the suite names so binding feels identical across visuals.
+**Not in starters** (visuals still support them): Duration, Tooltips. Add those later if needed — do not put unused columns in the starter model.
 
 ## Lokal build
 
