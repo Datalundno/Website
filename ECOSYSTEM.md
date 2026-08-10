@@ -21,6 +21,8 @@ Canonical contract for **existing** suite visuals and **every new visual**. Copy
 
 Do **not** merge visuals into one mega-visual. Do **not** invent parallel field names, density presets, or sample column headers.
 
+**Suite test:** the three visuals must form a **project overview dashboard** together (see §5a) — not only work as three independent downloads. Shared field names are necessary; designed co-location is what makes it a suite.
+
 ---
 
 ## 0) New visuals (read first)
@@ -176,6 +178,72 @@ List / status-chip visuals may color from `status` instead of a Color by enum �
 - Don’t fork sample column names per visual without updating this contract.
 - Don’t change Density preset names or table values without updating **all** suite visuals + this file on Website.
 - Don’t bind unused wells “for the future” — only what the job needs; the suite can grow later.
+- Don’t ship a “suite” demo where every visual shows its full standalone feature set at equal size — follow §5a.
+
+---
+
+## 5a) Project overview dashboard (canonical suite page)
+
+This is the **north star** for DataLund as a suite. Research on PMO / portfolio dashboards converges on the same pattern: a **status driver**, one **schedule view**, and **capacity** as a supporting angle — master → detail, not three full reports.
+
+### Verdict on the visual set
+
+| Keep? | Visual | Why |
+| --- | --- | --- |
+| **Yes** | Task List | Portfolio *what* + RAG — the selector |
+| **Yes** | Gantt | *When* work lands — the primary timeline |
+| **Yes** | Resource Load | *Who* is loaded — capacity angle |
+
+Do **not** replace these with a different trio. The questions are right. What failed in early demos was **composition** (equal-weight panes + duplicated columns), not the product set.
+
+### Canonical layout (one page)
+
+```
+┌─────────────┬──────────────────────────────────────────┐
+│ Task List   │  Gantt (primary timeline)                │
+│ (driver)    │  Density: Compact when co-located        │
+│ ~¼–⅓ width  ├──────────────────────────────────────────┤
+│ RAG · name  │  Resource Load (secondary)               │
+│ lead · %    │  Shorter height; Compact; filtered       │
+└─────────────┴──────────────────────────────────────────┘
+```
+
+- **Task List = spine.** Narrow, scannable, sorted worst RAG first when possible. Click a project → both timelines answer for that selection.
+- **Gantt = main stage.** Wide. Schedule for the filtered project(s).
+- **Resource Load = supporting band.** Same filter context; less height than Gantt. Shows people pressure for the selection — not a second equal Gantt.
+
+Alternative if height is tight: **same page with List + Gantt only**, and Resource Load on a **Capacity** page that reuses the same model and slicers. Still a suite — two pages, one story.
+
+### Co-location rules (what each pane keeps)
+
+When visuals sit on the overview page, **strip overlap** so each pane has one job:
+
+| Pane | Keep | Drop / don’t bind on this page |
+| --- | --- | --- |
+| **Task List** | Project, RAG, Project lead, Progress | Group (Gantt owns phase), long date columns if they clutter |
+| **Gantt** | Task, Start, End, Group, Resource | Don’t also show portfolio RAG here |
+| **Resource Load** | Resource, Task, Start, End | Don’t repeat Group headers if Gantt already does |
+
+Shared time window and cross-filter are mandatory. Density **Compact** is the default when two timelines share a page.
+
+### Interaction story (five-second test)
+
+1. Scan Task List — which projects are Red / Amber?  
+2. Click one.  
+3. Gantt shows *when* that work runs.  
+4. Resource Load shows *who* is busy on it.  
+
+If step 2–4 don’t feel like one move, the page is not a suite dashboard yet.
+
+### What we are *not* building on this page
+
+- KPI tile strips, budget charts, or multi-widget “control rooms” inside a custom visual (stay modular).  
+- Two timelines at equal dominance.  
+- A fourth visual that re-answers What / When / Who.
+
+### For visual agents
+
+When changing chrome, density, or landing copy, ask: **does this still work in the §5a overview layout?** Standalone AppSource use remains valid; overview co-location is the suite bar.
 
 ---
 
@@ -190,6 +258,7 @@ Before opening a PR, confirm:
 - [ ] Landing / README bind steps use **Start Date** + **End Date** (Duration as optional later)  
 - [ ] Sample / website-sync columns match §2 if you touch samples  
 - [ ] Help copy (if synced) lists core fields first; Duration / Tooltips as “also supported later”  
+- [ ] Co-location: still works in the §5a overview layout (Compact + stripped overlap)  
 - [ ] Focused PR for **this visual only** (Website sync can be a follow-up pack)
 
 ---
@@ -230,6 +299,7 @@ Mandatory:
 - Bind only fields this visual’s job needs. Reuse `status` when status is part of the job; do not invent a second status role.
 - Starter/sample columns must match the PM-maintained set in ECOSYSTEM.md unless you are extending the shared starter (update ECOSYSTEM.md).
 - One job for this visual only. Focused PR for this repo; website-sync if field UX or Format labels change.
+- Suite bar: changes must still work in ECOSYSTEM.md §5a project overview layout (Task List driver + Gantt primary + Resource Load secondary; Compact when co-located).
 
 Audit this visual against ECOSYSTEM.md §6 checklist and implement any gaps.
 ```
