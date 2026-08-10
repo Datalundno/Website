@@ -94,7 +94,31 @@ Format → **General → Density**. Same names and numbers everywhere.
 
 ---
 
-## 4) Modular but “one”
+## 4) Format pane: Color by (mandatory for timeline visuals)
+
+Gantt and Resource Load must use the **same control identity** so the suite feels one in Format → General.
+
+| | Contract |
+| --- | --- |
+| Object | `general` |
+| Property **`name`** | `colorBy` |
+| Display name | **Color by** |
+| Type | Enumeration (preferred) |
+
+**Enum values may differ per visual** (different jobs), but do not invent a second property name (`colorMode`, `colorByResource`, etc.).
+
+| Visual | Suggested values | Intent |
+| --- | --- | --- |
+| **Gantt** | `default` · `resource` · `group` · `task` | How bars pick their fill |
+| **Resource Load** | `single` · `task` · `concurrency` | Single fill, by task name, or concurrency warn |
+
+**Migration:** if the visual still has `colorByResource` (bool) or `colorMode`, rename to `colorBy` and map old persisted values in settings load so existing reports do not reset silently.
+
+Task List does **not** need this control unless it gains bar coloring later. RAG chips stay status-driven, not a Color by enum.
+
+---
+
+## 5) Modular but “one”
 
 ### Do
 
@@ -107,19 +131,22 @@ Format → **General → Density**. Same names and numbers everywhere.
 ### Don’t
 
 - Don’t rename suite roles to be “clearer” for one visual.
+- Don’t add **RAG / `status`** to Gantt or Resource Load — that stays Task List only.
+- Don’t invent alternate Format names for Color by (`colorMode`, `colorByResource`, …).
 - Don’t add dashboard clutter (stats strips, multi-widgets) inside a single visual.
 - Don’t fork sample column names per visual.
 - Don’t change Density preset names or table values without updating **all** suite visuals + Website docs.
 
 ---
 
-## 5) Per-visual checklist
+## 6) Per-visual checklist
 
 Before opening a PR, confirm:
 
 - [ ] Role `name`s match the table in §1  
 - [ ] Progress accepts 0–1 and 0–100  
 - [ ] Density presets match §3  
+- [ ] Timeline visuals: Format → General → **Color by** uses property `colorBy` (§4); migrate old keys if needed  
 - [ ] Landing / README bind steps use **Start Date** + **End Date** (Duration as optional later)  
 - [ ] Sample / website-sync columns match §2 if you touch samples  
 - [ ] Help copy (if synced) lists core fields first; Duration / Tooltips as “also supported later”  
@@ -127,7 +154,7 @@ Before opening a PR, confirm:
 
 ---
 
-## 6) Website sync expectations
+## 7) Website sync expectations
 
 When behaviour or capabilities change:
 
@@ -145,9 +172,9 @@ Canonical product URLs:
 
 ---
 
-## 7) Kickoff prompt (paste for visual agents)
+## 8) Kickoff prompt (paste for visual agents)
 
-> Follow `ECOSYSTEM.md` (DataLund). One job for this visual; stay modular. Do not rename suite field role names. Prefer End Date over Duration in docs and samples. Density = Compact / Comfortable / Large / Custom with the suite table. Starter samples only include PM-maintained columns (no Tooltip / Duration columns by default). Progress accepts 0–1 or 0–100. Open a focused PR for this visual only; sync Website help/samples if field UX changes.
+> Follow `ECOSYSTEM.md` (DataLund). One job for this visual; stay modular. Do not rename suite field role names. Prefer End Date over Duration in docs and samples. Density = Compact / Comfortable / Large / Custom with the suite table. Timeline visuals: Format → General → Color by must use property `colorBy` (migrate `colorMode` / `colorByResource`). Do not add RAG/`status` outside Task List. Starter samples only include PM-maintained columns (no Tooltip / Duration columns by default). Progress accepts 0–1 or 0–100. Open a focused PR for this visual only; sync Website help/samples if field UX changes.
 
 ---
 
@@ -160,4 +187,4 @@ Canonical product URLs:
 | `DOMAIN.md` | Website | Hosting, downloads, sample generation |
 | `RESOURCE_LOAD.md` / `TASK_LIST.md` | Visual kickoffs | Per-visual scope (must not contradict this file) |
 
-If a kickoff brief and this file disagree, **this file wins** for field names, density, and starter columns.
+If a kickoff brief and this file disagree, **this file wins** for field names, density, Color by, and starter columns.
