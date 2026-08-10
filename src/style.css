@@ -367,147 +367,164 @@ code {
   max-width: 48ch;
 }
 
-.visuals {
+.suite {
   border-top: 1px solid var(--line);
 }
 
-.suite-links {
-  margin: 1.75rem 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.85rem;
-  max-width: 40rem;
+.suite-inner {
+  width: min(1080px, 100%);
 }
 
-.suite-links a {
+.carousel {
+  margin-top: 2rem;
+}
+
+.carousel-head {
   display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  text-decoration: none;
-  color: inherit;
-  padding: 0.15rem 0;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 0.85rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.85rem 1.25rem;
+  margin-bottom: 1rem;
 }
 
-.suite-links a:hover .suite-name {
-  color: var(--brand-mid);
+.carousel-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
 }
 
-.suite-name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.15rem;
-  letter-spacing: -0.02em;
+.carousel-tab {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2.5rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 61, 54, 0.16);
+  background: rgba(255, 255, 255, 0.42);
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.carousel-tab:hover {
   color: var(--brand);
+  border-color: rgba(15, 61, 54, 0.28);
 }
 
-.suite-blurb {
-  color: var(--ink-soft);
-  font-size: 0.98rem;
+.carousel-tab.is-active,
+.carousel-tab[aria-selected="true"] {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: var(--paper);
 }
 
-.suite-sample-cta {
-  margin-top: 1.5rem;
-}
-
-.suite-sample-note {
-  margin: 0.75rem 0 0;
-  max-width: 48ch;
-  color: var(--ink-soft);
-  font-size: 0.95rem;
-}
-
-.feature {
-  padding-top: 0;
-}
-
-.feature-layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: clamp(2rem, 5vw, 3.5rem);
-  align-items: center;
-  width: min(1120px, 100%);
-  margin-inline: auto;
-}
-
-.feature-list {
-  margin: 1.4rem 0 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 0.65rem;
-}
-
-.feature-list li {
-  position: relative;
-  padding-left: 1.35rem;
+.tab-flag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.18rem 0.4rem;
+  border-radius: 999px;
+  background: rgba(251, 191, 36, 0.92);
   color: var(--ink);
-  font-weight: 500;
 }
 
-.feature-list li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.55rem;
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 2px;
-  background: var(--accent);
+.carousel-tab.is-active .tab-flag,
+.carousel-tab[aria-selected="true"] .tab-flag {
+  background: rgba(251, 191, 36, 0.95);
 }
 
-.feature-stage {
-  width: 100%;
-}
-
-.stage-frame {
-  border-radius: calc(var(--radius) + 4px);
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid var(--line);
-  box-shadow: var(--shadow-soft);
-}
-
-.stage-chrome {
+.carousel-controls {
   display: flex;
-  align-items: center;
   gap: 0.4rem;
-  padding: 0.65rem 0.85rem;
-  border-bottom: 1px solid var(--line);
-  background: rgba(232, 242, 238, 0.85);
 }
 
-.stage-chrome span {
-  width: 0.55rem;
-  height: 0.55rem;
-  border-radius: 50%;
-  background: rgba(15, 61, 54, 0.22);
+.carousel-btn {
+  appearance: none;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(15, 61, 54, 0.18);
+  background: rgba(255, 255, 255, 0.55);
+  color: var(--brand);
+  font: inherit;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease;
 }
 
-.stage-chrome span:nth-child(1) { background: #f87171; }
-.stage-chrome span:nth-child(2) { background: #fbbf24; }
-.stage-chrome span:nth-child(3) { background: #34d399; }
-
-.stage-chrome p {
-  margin: 0 0 0 0.45rem;
-  font-size: 0.78rem;
-  color: var(--ink-soft);
+.carousel-btn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(15, 61, 54, 0.3);
 }
 
-.mini-gantt {
-  width: 100%;
-  height: auto;
+.carousel-viewport {
+  overflow: hidden;
+  border-radius: calc(var(--radius) + 6px);
+}
+
+.carousel-track {
   display: block;
 }
 
-.stage-frame-video {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
+.carousel-slide {
+  display: none;
+  grid-template-columns: 1fr;
+  gap: 1.35rem;
+  align-items: center;
+}
+
+.carousel-slide.is-active {
+  display: grid;
+}
+
+.slide-copy h3 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.45rem, 2.8vw, 1.9rem);
+  letter-spacing: -0.03em;
+  color: var(--brand);
+}
+
+.slide-copy p {
+  margin: 0.65rem 0 0;
+  color: var(--ink-soft);
+  max-width: 36ch;
+  font-size: 1.02rem;
+}
+
+.slide-copy .cta-row {
+  margin-top: 1.15rem;
+}
+
+.slide-stage {
+  width: 100%;
+  min-width: 0;
+}
+
+.showcase-art {
+  display: block;
+  width: 100%;
+  height: auto;
   border-radius: calc(var(--radius) + 6px);
-  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--line);
+  background: #e8f2ee;
 }
 
 .feature-video {
@@ -522,8 +539,15 @@ code {
   border: 1px solid var(--line);
 }
 
-.feature-cta {
-  margin-top: 1.5rem;
+.suite-sample-cta {
+  margin-top: 1.25rem;
+}
+
+.suite-sample-note {
+  margin: 1.75rem 0 0;
+  max-width: 48ch;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
 }
 
 .get {
@@ -590,8 +614,9 @@ code {
 }
 
 @media (min-width: 900px) {
-  .feature-layout {
-    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  .carousel-slide.is-active {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1.75rem 2rem;
   }
 
   .hero-copy {
@@ -665,13 +690,19 @@ code {
     display: none;
   }
 
-  .stage-frame-video {
+  .carousel-slide.is-active .slide-stage:has(.feature-video)::before {
+    content: '';
+    display: block;
     aspect-ratio: 16 / 9;
     border-radius: calc(var(--radius) + 6px);
     box-shadow: var(--shadow-soft);
     border: 1px solid var(--line);
     background:
       url("/videos/datalund-gantt-showcase.jpg") center / cover no-repeat;
+  }
+
+  .carousel-slide {
+    transition: none;
   }
 
   .btn:hover {
