@@ -58,12 +58,28 @@ function initCarousel() {
       const video = panel.querySelector('video')
       if (!video) return
       if (i === active) {
+        // Skip the blank title card at the start of the Gantt reel.
+        if (video.currentTime < 2.2) video.currentTime = 2.2
         void video.play().catch(() => {})
       } else {
         video.pause()
       }
     })
   }
+
+  // After a loop restart, jump past the blank intro again.
+  panels.forEach((panel) => {
+    const video = panel.querySelector('video')
+    if (!video) return
+    let pastIntro = false
+    video.addEventListener('timeupdate', () => {
+      if (video.currentTime > 3) pastIntro = true
+      if (pastIntro && video.currentTime < 0.4) {
+        pastIntro = false
+        video.currentTime = 2.2
+      }
+    })
+  })
 
   const show = (nextIndex: number) => {
     index = (nextIndex + panels.length) % panels.length

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="tlTitle tlDesc">
+  <title id="tlTitle">DataLund Task List</title>
+  <desc id="tlDesc">Projects with RAG status and progress; one row selected to filter the page.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8F2EE"/>
+      <stop offset="60%" stop-color="#F4FAF7"/>
+      <stop offset="100%" stop-color="#DCEEE7"/>
+    </linearGradient>
+    <filter id="soft" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#0F3D36" flood-opacity="0.13"/>
+    </filter>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <circle cx="860" cy="80" r="140" fill="#2DD4BF" opacity="0.12"/>
+  <circle cx="90" cy="470" r="100" fill="#FBBF24" opacity="0.1"/>
+
+  <text x="48" y="48" font-family="Public Sans, system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="0.14em" fill="#1A6B5C">PORTFOLIO</text>
+  <text x="48" y="80" font-family="Bricolage Grotesque, Georgia, serif" font-size="28" font-weight="700" fill="#0F3D36">Status at a glance</text>
+
+  <g filter="url(#soft)">
+    <rect x="48" y="108" width="864" height="392" rx="18" fill="#fff" stroke="#0F3D36" stroke-opacity="0.1"/>
+  </g>
+  <rect x="48" y="108" width="864" height="40" rx="18" fill="#F4FAF7"/>
+  <rect x="48" y="128" width="864" height="20" fill="#F4FAF7"/>
+  <circle cx="72" cy="128" r="5" fill="#F87171"/>
+  <circle cx="90" cy="128" r="5" fill="#FBBF24"/>
+  <circle cx="108" cy="128" r="5" fill="#34D399"/>
+  <text x="132" y="133" font-family="Public Sans, system-ui, sans-serif" font-size="12" fill="#3D5A54">Delivery · DataLund Task List</text>
+
+  <!-- column headers -->
+  <g font-family="Public Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="#3D5A54">
+    <text x="80" y="176">Project</text>
+    <text x="420" y="176">Phase</text>
+    <text x="560" y="176">Lead</text>
+    <text x="720" y="176">Progress</text>
+  </g>
+  <line x1="68" y1="188" x2="892" y2="188" stroke="#0F3D36" stroke-opacity="0.08"/>
+
+  <!-- Yard Retrofit red -->
+  <rect x="68" y="204" width="824" height="56" rx="10" fill="#F8FCF9" stroke="#0F3D36" stroke-opacity="0.06"/>
+  <circle cx="96" cy="232" r="7" fill="#EF4444"/>
+  <text x="118" y="228" font-family="Public Sans, system-ui, sans-serif" font-size="15" font-weight="600" fill="#142821">Yard Retrofit</text>
+  <text x="118" y="248" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#3D5A54">Budget overrun</text>
+  <text x="420" y="236" font-family="Public Sans, system-ui, sans-serif" font-size="13" fill="#3D5A54">Initiation</text>
+  <text x="560" y="236" font-family="Public Sans, system-ui, sans-serif" font-size="13" fill="#3D5A54">Cara Diaz</text>
+  <rect x="720" y="226" width="140" height="10" rx="5" fill="#E8F2EE"/>
+  <rect x="720" y="226" width="25" height="10" rx="5" fill="#EF4444"/>
+  <text x="870" y="236" text-anchor="end" font-family="Public Sans, system-ui, sans-serif" font-size="12" fill="#3D5A54">18%</text>
+
+  <!-- Digital Twin selected -->
+  <rect x="68" y="272" width="824" height="64" rx="10" fill="#E8F2EE" stroke="#2DD4BF" stroke-width="2"/>
+  <circle cx="96" cy="304" r="7" fill="#34D399"/>
+  <text x="118" y="298" font-family="Public Sans, system-ui, sans-serif" font-size="15" font-weight="700" fill="#0F3D36">Digital Twin v2</text>
+  <text x="118" y="318" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#1A6B5C">Selected · filters the page</text>
+  <text x="420" y="308" font-family="Public Sans, system-ui, sans-serif" font-size="13" fill="#0F3D36">Build</text>
+  <text x="560" y="308" font-family="Public Sans, system-ui, sans-serif" font-size="13" fill="#0F3D36">Dan Okonkwo</text>
+  <rect x="720" y="298" width="140" height="10" rx="5" fill="#D0E6DE"/>
+  <rect x="720" y="298" width="123" height="10" rx="5" fill="#0F3D36"/>
+  <text x="870" y="308" text-anchor="end" font-family="Public Sans, system-ui, sans-serif" font-size="12" font-weight="600" fill="#0F3D36">88%</text>
+
+  <!-- Arctic Link amber -->
+  <rect x="68" y="348" width="824" height="56" rx="10" fill="#F8FCF9" stroke="#0F3D36" stroke-opacity="0.06"/>
+  <circle cx="96" cy="376" r="7" fill="#FBBF24"/>
+  <text x="118" y="372" font-family="Public Sans, system-ui, sans-serif" font-size="15" font-weight="600" fill="#142821">Arctic Link</text>
+  <text x="118" y="392" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#3D5A54">Weather window</text>
+  <text x="420" y="380" font-family="Public Sans, system-ui, sans-serif" font-size="13" fill="#3D5A54">Delivery</text>
+  <text x="560" y="380" font-family="Public Sans, system-ui, sans-serif" font-size="13" fill="#3D5A54">Bo Berg</text>
+  <rect x="720" y="370" width="140" height="10" rx="5" fill="#E8F2EE"/>
+  <rect x="720" y="370" width="63" height="10" rx="5" fill="#1A6B5C"/>
+  <text x="870" y="380" text-anchor="end" font-family="Public Sans, system-ui, sans-serif" font-size="12" fill="#3D5A54">45%</text>
+
+  <!-- North Sea Hub -->
+  <rect x="68" y="416" width="824" height="56" rx="10" fill="#F8FCF9" stroke="#0F3D36" stroke-opacity="0.06"/>
+  <circle cx="96" cy="444" r="7" fill="#34D399"/>
+  <text x="118" y="440" font-family="Public Sans, system-ui, sans-serif" font-size="15" font-weight="600" fill="#142821">North Sea Hub</text>
+  <text x="118" y="460" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#3D5A54">On track for Q3</text>
+  <text x="420" y="448" font-family="Public Sans, system-ui, sans-serif" font-size="13" fill="#3D5A54">Delivery</text>
+  <text x="560" y="448" font-family="Public Sans, system-ui, sans-serif" font-size="13" fill="#3D5A54">Ada Ng</text>
+  <rect x="720" y="438" width="140" height="10" rx="5" fill="#E8F2EE"/>
+  <rect x="720" y="438" width="100" height="10" rx="5" fill="#2DD4BF"/>
+  <text x="870" y="448" text-anchor="end" font-family="Public Sans, system-ui, sans-serif" font-size="12" fill="#3D5A54">72%</text>
+</svg>

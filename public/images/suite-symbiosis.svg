@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="suiteTitle suiteDesc">
+  <title id="suiteTitle">Datalund suite on one report page</title>
+  <desc id="suiteDesc">Task List selects a project; Gantt and Resource Load update together.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E8F2EE"/>
+      <stop offset="55%" stop-color="#F4FAF7"/>
+      <stop offset="100%" stop-color="#DCEEE7"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0.2" y1="0" x2="0.9" y2="1">
+      <stop offset="0%" stop-color="#2DD4BF" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#FBBF24" stop-opacity="0.08"/>
+    </linearGradient>
+    <filter id="soft" x="-8%" y="-8%" width="116%" height="116%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#0F3D36" flood-opacity="0.12"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 1.2 L8 5 L0 8.8 Z" fill="#1A6B5C"/>
+    </marker>
+  </defs>
+
+  <rect width="960" height="540" fill="url(#bg)"/>
+  <circle cx="820" cy="90" r="160" fill="url(#glow)"/>
+  <circle cx="120" cy="460" r="120" fill="#2DD4BF" opacity="0.08"/>
+
+  <text x="36" y="42" font-family="Public Sans, system-ui, sans-serif" font-size="11" font-weight="700" letter-spacing="0.14em" fill="#1A6B5C">SUITE</text>
+  <text x="36" y="72" font-family="Bricolage Grotesque, Georgia, serif" font-size="28" font-weight="700" fill="#0F3D36">One page. Shared filter.</text>
+
+  <!-- Report canvas -->
+  <g filter="url(#soft)">
+    <rect x="36" y="96" width="888" height="408" rx="18" fill="#fff" stroke="#0F3D36" stroke-opacity="0.1"/>
+  </g>
+  <rect x="36" y="96" width="888" height="36" rx="18" fill="#F4FAF7"/>
+  <rect x="36" y="114" width="888" height="18" fill="#F4FAF7"/>
+  <circle cx="58" cy="114" r="5" fill="#F87171"/>
+  <circle cx="76" cy="114" r="5" fill="#FBBF24"/>
+  <circle cx="94" cy="114" r="5" fill="#34D399"/>
+  <text x="118" y="119" font-family="Public Sans, system-ui, sans-serif" font-size="12" fill="#3D5A54">Portfolio · Datalund suite</text>
+  <text x="880" y="119" text-anchor="end" font-family="Public Sans, system-ui, sans-serif" font-size="11" font-weight="600" fill="#1A6B5C">Cross-filter on</text>
+
+  <!-- Task List panel -->
+  <g>
+    <rect x="56" y="150" width="250" height="330" rx="12" fill="#F8FCF9" stroke="#0F3D36" stroke-opacity="0.1"/>
+    <text x="72" y="176" font-family="Public Sans, system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="0.08em" fill="#1A6B5C">TASK LIST</text>
+    <text x="72" y="196" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#3D5A54">Pick a project</text>
+
+    <!-- rows -->
+    <rect x="68" y="214" width="226" height="48" rx="8" fill="#fff" stroke="#0F3D36" stroke-opacity="0.08"/>
+    <circle cx="88" cy="238" r="6" fill="#EF4444"/>
+    <text x="106" y="234" font-family="Public Sans, system-ui, sans-serif" font-size="13" font-weight="600" fill="#142821">Yard Retrofit</text>
+    <text x="106" y="252" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#3D5A54">18%</text>
+
+    <rect x="68" y="272" width="226" height="56" rx="8" fill="#E8F2EE" stroke="#2DD4BF" stroke-width="2"/>
+    <circle cx="88" cy="300" r="6" fill="#34D399"/>
+    <text x="106" y="294" font-family="Public Sans, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0F3D36">Digital Twin v2</text>
+    <text x="106" y="312" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#1A6B5C">88% · selected</text>
+    <rect x="200" y="304" width="78" height="8" rx="4" fill="#D0E6DE"/>
+    <rect x="200" y="304" width="68" height="8" rx="4" fill="#0F3D36"/>
+
+    <rect x="68" y="338" width="226" height="48" rx="8" fill="#fff" stroke="#0F3D36" stroke-opacity="0.08"/>
+    <circle cx="88" cy="362" r="6" fill="#FBBF24"/>
+    <text x="106" y="358" font-family="Public Sans, system-ui, sans-serif" font-size="13" font-weight="600" fill="#142821">Arctic Link</text>
+    <text x="106" y="376" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#3D5A54">45%</text>
+
+    <rect x="68" y="396" width="226" height="48" rx="8" fill="#fff" stroke="#0F3D36" stroke-opacity="0.08"/>
+    <circle cx="88" cy="420" r="6" fill="#34D399"/>
+    <text x="106" y="416" font-family="Public Sans, system-ui, sans-serif" font-size="13" font-weight="600" fill="#142821">North Sea Hub</text>
+    <text x="106" y="434" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#3D5A54">72%</text>
+  </g>
+
+  <!-- Flow arrows -->
+  <path d="M318 300 H350" stroke="#1A6B5C" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M334 300 V410 H350" stroke="#1A6B5C" stroke-width="2" fill="none" marker-end="url(#arrow)" opacity="0.7"/>
+
+  <!-- Gantt panel -->
+  <g>
+    <rect x="360" y="150" width="540" height="168" rx="12" fill="#F8FCF9" stroke="#0F3D36" stroke-opacity="0.1"/>
+    <text x="376" y="176" font-family="Public Sans, system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="0.08em" fill="#1A6B5C">GANTT</text>
+    <text x="876" y="176" text-anchor="end" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#3D5A54">Digital Twin v2</text>
+
+    <g font-family="Public Sans, system-ui, sans-serif" font-size="10" fill="#3D5A54">
+      <text x="520" y="198">JUN</text>
+      <text x="620" y="198">JUL</text>
+      <text x="720" y="198">AUG</text>
+      <text x="820" y="198">SEP</text>
+    </g>
+    <g stroke="#0F3D36" stroke-opacity="0.08">
+      <line x1="510" y1="206" x2="510" y2="300"/>
+      <line x1="610" y1="206" x2="610" y2="300"/>
+      <line x1="710" y1="206" x2="710" y2="300"/>
+      <line x1="810" y1="206" x2="810" y2="300"/>
+    </g>
+    <line x1="760" y1="206" x2="760" y2="300" stroke="#0F3D36" stroke-dasharray="4 5" stroke-opacity="0.45"/>
+    <circle cx="760" cy="206" r="3.5" fill="#FBBF24"/>
+
+    <text x="376" y="232" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#142821">Model training</text>
+    <rect x="510" y="220" width="140" height="16" rx="5" fill="#2DD4BF"/>
+    <text x="376" y="264" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#142821">Integration</text>
+    <rect x="610" y="252" width="120" height="16" rx="5" fill="#0F3D36"/>
+    <text x="376" y="296" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#142821">UAT</text>
+    <rect x="710" y="284" width="90" height="16" rx="5" fill="#FBBF24"/>
+  </g>
+
+  <!-- Resource Load panel -->
+  <g>
+    <rect x="360" y="336" width="540" height="144" rx="12" fill="#F8FCF9" stroke="#0F3D36" stroke-opacity="0.1"/>
+    <text x="376" y="362" font-family="Public Sans, system-ui, sans-serif" font-size="12" font-weight="700" letter-spacing="0.08em" fill="#1A6B5C">RESOURCE LOAD</text>
+    <text x="876" y="362" text-anchor="end" font-family="Public Sans, system-ui, sans-serif" font-size="11" fill="#3D5A54">Same people, same window</text>
+
+    <text x="376" y="396" font-family="Public Sans, system-ui, sans-serif" font-size="12" fill="#142821">Ada Ng</text>
+    <rect x="450" y="382" width="20" height="16" rx="8" fill="#FBBF24"/>
+    <text x="460" y="394" text-anchor="middle" font-family="Public Sans, system-ui, sans-serif" font-size="10" font-weight="700" fill="#142821">2</text>
+    <rect x="510" y="384" width="150" height="12" rx="4" fill="#2DD4BF"/>
+    <rect x="640" y="384" width="110" height="12" rx="4" fill="#1A6B5C"/>
+
+    <text x="376" y="428" font-family="Public Sans, system-ui, sans-serif" font-size="12" fill="#142821">Sam Ortiz</text>
+    <rect x="450" y="414" width="20" height="16" rx="8" fill="#2DD4BF"/>
+    <text x="460" y="426" text-anchor="middle" font-family="Public Sans, system-ui, sans-serif" font-size="10" font-weight="700" fill="#0F3D36">1</text>
+    <rect x="610" y="416" width="130" height="12" rx="4" fill="#0F3D36"/>
+
+    <text x="376" y="460" font-family="Public Sans, system-ui, sans-serif" font-size="12" fill="#142821">Dan Okonkwo</text>
+    <rect x="450" y="446" width="20" height="16" rx="8" fill="#2DD4BF"/>
+    <text x="460" y="458" text-anchor="middle" font-family="Public Sans, system-ui, sans-serif" font-size="10" font-weight="700" fill="#0F3D36">1</text>
+    <rect x="510" y="448" width="170" height="12" rx="4" fill="#7CFFB2"/>
+  </g>
+</svg>
