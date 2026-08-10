@@ -121,12 +121,12 @@ Starter Excels use **two grains** and avoid duplicating the same attribute on bo
 | Task / Project | `task` | Project on **Projects**; Task on **Tasks** (Tasks also has Project as **link only**) |
 | Start Date | `startDate` | Both grains (portfolio dates vs assignment dates) |
 | End Date | `endDate` | Both grains |
-| Progress | `progress` | Both grains (**0–100** in samples; visuals also accept 0–1) |
+| Progress | `progress` | **Projects only** in starter (portfolio %). Task Progress optional later for bar fill |
 | Group | `group` | **Tasks only** in starter (Gantt sections) |
 | Resource / Project lead | `resource` | Project lead on **Projects**; Resource on **Tasks** |
 | RAG | `status` | **Projects only** in starter |
 
-**Not in starters** (visuals still support them): Duration, Tooltips, Group on Projects.
+**Not in starters** (visuals still support them): Duration, Tooltips, Group on Projects, Progress on Tasks.
 
 ## Lokal build
 

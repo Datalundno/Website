@@ -91,7 +91,7 @@ Two grains — **do not copy the same attribute onto both sheets**.
 
 **Tasks** (Gantt + Resource Load — assignment row):
 
-`Task · Start Date · End Date · Progress · Group · Resource · Project`
+`Task · Start Date · End Date · Group · Resource · Project`
 
 | Column | Lives on | Why |
 | --- | --- | --- |
@@ -99,12 +99,14 @@ Two grains — **do not copy the same attribute onto both sheets**.
 | `Project lead` | Projects | Who owns the project |
 | `Resource` | Tasks | Who does the task (different person / well) |
 | `Group` | Tasks in this starter | Gantt collapse / phase on assignments — not duplicated on Projects |
+| `RAG` + `Progress` | Projects only in this starter | Portfolio health — do not also maintain Progress on every task |
 
 ### Not in starters (still supported by visuals)
 
 - **Duration** — optional later if someone has days instead of End Date  
 - **Tooltips** — optional later (milestones, obstacles, notes)  
 - **Group on Projects** — optional later for Task List phase sections  
+- **Progress on Tasks** — optional later for Gantt / Resource Load bar fill  
 - **RAG on the Tasks sheet** — add only if a visual’s job needs task-level status in the sample  
 
 If you ship or sync sample data from a visual repo, **match this column set** unless you are intentionally extending the starter for a new shared need (update this file). Do not reintroduce unused or duplicated columns into the default starter.

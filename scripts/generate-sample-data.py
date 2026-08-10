@@ -65,7 +65,8 @@ THIN = Border(
 # Projects = portfolio row (Task List). Tasks = assignment row (Gantt / Resource Load).
 # Project on Tasks is only the link key (relate Tasks[Project] → Projects[Project]).
 # Project lead (portfolio owner) ≠ Resource (task assignee).
-# Group lives on Tasks only in this starter (Gantt collapse) — do not copy it onto Projects.
+# Group lives on Tasks only (Gantt collapse).
+# Status/progress for PMs: RAG + Progress on Projects only — not per-task Progress in this starter.
 PROJECT_HEADERS = [
     "Project",
     "RAG",
@@ -79,13 +80,12 @@ TASK_HEADERS = [
     "Task",
     "Start Date",
     "End Date",
-    "Progress",
     "Group",
     "Resource",
     "Project",
 ]
 
-# Small starter portfolio. Progress is 0–100. Dates around Aug 2026.
+# Small starter portfolio. Progress is 0–100 on Projects only. Dates around Aug 2026.
 PROJECTS = [
     # Project, RAG, Project lead, Progress, Start Date, End Date
     ("North Sea Hub", "Green", "Ada Ng", 72, date(2026, 6, 11), date(2026, 9, 19)),
@@ -96,19 +96,19 @@ PROJECTS = [
 ]
 
 TASKS = [
-    # Task, Start Date, End Date, Progress, Group, Resource, Project
-    ("Requirements", date(2026, 6, 11), date(2026, 6, 25), 100, "Delivery", "Ada Ng", "North Sea Hub"),
-    ("API design", date(2026, 7, 1), date(2026, 7, 20), 75, "Delivery", "Sam Ortiz", "North Sea Hub"),
-    ("FAT prep", date(2026, 8, 20), date(2026, 9, 5), 20, "Delivery", "Ada Ng", "North Sea Hub"),
-    ("Cable pull", date(2026, 7, 1), date(2026, 8, 20), 40, "Delivery", "Bo Berg", "Arctic Link"),
-    ("Weather hold", date(2026, 8, 10), date(2026, 8, 18), 0, "Delivery", "Riley Chen", "Arctic Link"),
-    ("On-call week", date(2026, 8, 18), date(2026, 8, 24), 0, "Delivery", "Bo Berg", "Arctic Link"),
-    ("Scope workshop", date(2026, 7, 11), date(2026, 7, 25), 50, "Initiation", "Cara Diaz", "Yard Retrofit"),
-    ("Scope freeze", date(2026, 8, 12), date(2026, 8, 12), 0, "Initiation", "Cara Diaz", "Yard Retrofit"),
-    ("Integration", date(2026, 7, 1), date(2026, 8, 10), 85, "Build", "Sam Ortiz", "Digital Twin v2"),
-    ("UAT", date(2026, 8, 11), date(2026, 8, 25), 30, "Build", "Ada Ng", "Digital Twin v2"),
-    ("Permit draft", date(2026, 8, 15), date(2026, 10, 1), 10, "Plan", "Finn Olsen", "Port Expansion"),
-    ("Stakeholder map", date(2026, 8, 20), date(2026, 9, 15), 5, "Plan", "Jordan Lee", "Port Expansion"),
+    # Task, Start Date, End Date, Group, Resource, Project
+    ("Requirements", date(2026, 6, 11), date(2026, 6, 25), "Delivery", "Ada Ng", "North Sea Hub"),
+    ("API design", date(2026, 7, 1), date(2026, 7, 20), "Delivery", "Sam Ortiz", "North Sea Hub"),
+    ("FAT prep", date(2026, 8, 20), date(2026, 9, 5), "Delivery", "Ada Ng", "North Sea Hub"),
+    ("Cable pull", date(2026, 7, 1), date(2026, 8, 20), "Delivery", "Bo Berg", "Arctic Link"),
+    ("Weather hold", date(2026, 8, 10), date(2026, 8, 18), "Delivery", "Riley Chen", "Arctic Link"),
+    ("On-call week", date(2026, 8, 18), date(2026, 8, 24), "Delivery", "Bo Berg", "Arctic Link"),
+    ("Scope workshop", date(2026, 7, 11), date(2026, 7, 25), "Initiation", "Cara Diaz", "Yard Retrofit"),
+    ("Scope freeze", date(2026, 8, 12), date(2026, 8, 12), "Initiation", "Cara Diaz", "Yard Retrofit"),
+    ("Integration", date(2026, 7, 1), date(2026, 8, 10), "Build", "Sam Ortiz", "Digital Twin v2"),
+    ("UAT", date(2026, 8, 11), date(2026, 8, 25), "Build", "Ada Ng", "Digital Twin v2"),
+    ("Permit draft", date(2026, 8, 15), date(2026, 10, 1), "Plan", "Finn Olsen", "Port Expansion"),
+    ("Stakeholder map", date(2026, 8, 20), date(2026, 9, 15), "Plan", "Jordan Lee", "Port Expansion"),
 ]
 
 
@@ -243,14 +243,15 @@ def build_suite_start(ws: Worksheet) -> None:
             ("blank", ""),
             ("title", "What to maintain (no duplicates)"),
             ("body", "Projects (Task List): Project · RAG · Project lead · Progress · Start Date · End Date"),
-            ("body", "Tasks (Gantt + Resource Load): Task · Start Date · End Date · Progress · Group · Resource · Project"),
+            ("body", "Tasks (Gantt + Resource Load): Task · Start Date · End Date · Group · Resource · Project"),
             ("blank", ""),
             ("title", "How the sheets connect"),
             ("body", "Tasks[Project] is only the link to Projects — not a second project name to redesign."),
             ("body", "Project lead = who owns the project. Resource = who does the task. Different people, different wells."),
             ("body", "Group lives on Tasks (Gantt sections). Do not copy Group onto Projects in this starter."),
+            ("body", "RAG + Progress on Projects is the portfolio health — not a second Progress on every task."),
             ("muted", "Gantt Resource well → Tasks[Resource]. Never put Project in the Resource well."),
-            ("muted", "Progress is 0–100. RAG is Red / Amber / Green (or Rød / Gul / Grønn)."),
+            ("muted", "Task Progress is optional later for bar fill. Progress on Projects is 0–100. RAG: Red / Amber / Green."),
             ("blank", ""),
             ("body", "Put Task List on the page, click a project — Gantt and Resource Load follow."),
             ("blank", ""),
@@ -287,7 +288,7 @@ def build_suite() -> Path:
         "Tasks",
         TASK_HEADERS,
         TASKS,
-        widths=[16, 12, 12, 10, 12, 14, 16],
+        widths=[16, 12, 12, 12, 14, 16],
         tab_color=ACCENT,
     )
 
@@ -308,21 +309,22 @@ def build_gantt() -> Path:
             ("title", "Quick start"),
             ("step", "1. Import ganttChart.pbiviz"),
             ("step", "2. Load Tasks"),
-            ("step", "3. Bind Task, Start Date, End Date — then Progress, Group, Resource"),
+            ("step", "3. Bind Task, Start Date, End Date — then Group, Resource"),
             ("muted", "Resource well → Resource (assignee). Do not put Project in Resource."),
+            ("muted", "Progress is optional later for bar fill — not in this starter."),
             ("blank", ""),
             ("muted", "Same columns as Resource Load. Full suite page → DatalundSuiteSample.xlsx"),
             ("blank", ""),
             ("link", "https://datalund.no/visuals/gantt/"),
         ],
     )
-    rows = [(t[0], t[1], t[2], t[3], t[4], t[5]) for t in TASKS]
+    rows = [(t[0], t[1], t[2], t[3], t[4]) for t in TASKS]
     add_data_sheet(
         wb,
         "Tasks",
-        ["Task", "Start Date", "End Date", "Progress", "Group", "Resource"],
+        ["Task", "Start Date", "End Date", "Group", "Resource"],
         rows,
-        widths=[16, 12, 12, 10, 12, 14],
+        widths=[16, 12, 12, 12, 14],
     )
     path = OUT / "GanttSampleData.xlsx"
     wb.save(path)
@@ -341,20 +343,21 @@ def build_resource_load() -> Path:
             ("title", "Quick start"),
             ("step", "1. Import resourceLoad.pbiviz"),
             ("step", "2. Load Assignments"),
-            ("step", "3. Bind Resource, Task, Start Date, End Date — then Progress, Group"),
+            ("step", "3. Bind Resource, Task, Start Date, End Date — then Group"),
+            ("muted", "Progress is optional later for bar fill — not in this starter."),
             ("blank", ""),
             ("muted", "Same columns as Gantt. Full suite page → DatalundSuiteSample.xlsx"),
             ("blank", ""),
             ("link", "https://datalund.no/visuals/resource-load/"),
         ],
     )
-    rows = [(t[5], t[0], t[1], t[2], t[3], t[4]) for t in TASKS]
+    rows = [(t[4], t[0], t[1], t[2], t[3]) for t in TASKS]
     add_data_sheet(
         wb,
         "Assignments",
-        ["Resource", "Task", "Start Date", "End Date", "Progress", "Group"],
+        ["Resource", "Task", "Start Date", "End Date", "Group"],
         rows,
-        widths=[14, 16, 12, 12, 10, 12],
+        widths=[14, 16, 12, 12, 12],
     )
     path = OUT / "ResourceLoadSampleData.xlsx"
     wb.save(path)
