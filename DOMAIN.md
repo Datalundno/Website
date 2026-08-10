@@ -90,6 +90,24 @@ Samme A/CNAME-oppsett, eller en videresending til `https://datalund.no`.
    - https://datalund.no/downloads/ganttChart.pbiviz
    - https://datalund.no/downloads/resourceLoad.pbiviz
    - https://datalund.no/downloads/taskList.pbiviz
+   - https://datalund.no/downloads/DatalundSuiteSample.xlsx
+
+## Sample data
+
+Shared suite workbook + per-visual extracts are generated from one script:
+
+```bash
+python3 scripts/generate-sample-data.py
+```
+
+| File | Use |
+| --- | --- |
+| `public/downloads/DatalundSuiteSample.xlsx` | Projects + Tasks — build a suite page (Task List filters Gantt / Resource Load) |
+| `public/downloads/GanttSampleData.xlsx` | Gantt-only extract |
+| `public/downloads/ResourceLoadSampleData.xlsx` | Resource Load-only extract |
+| `public/downloads/TaskListSampleData.xlsx` | Task List-only extract |
+
+Edit `scripts/generate-sample-data.py`, re-run, then commit the four `.xlsx` files together so they do not drift.
 
 ## Lokal build
 

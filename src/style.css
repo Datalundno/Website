@@ -408,6 +408,17 @@ code {
   font-size: 0.98rem;
 }
 
+.suite-sample-cta {
+  margin-top: 1.5rem;
+}
+
+.suite-sample-note {
+  margin: 0.75rem 0 0;
+  max-width: 48ch;
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
 .feature {
   padding-top: 0;
 }
