@@ -6,7 +6,7 @@ Marketing site for [DataLund](https://datalund.no) — free Power BI visuals.
 **Pages:** https://datalundno.github.io/Website/  
 **Custom domain:** [datalund.no](https://datalund.no)
 
-**Ecosystem contract for visual agents:** [ECOSYSTEM.md](./ECOSYSTEM.md) — shared fields, density, starter columns, modular-but-one rules.
+**Ecosystem contract (start here for any visual agent):** [ECOSYSTEM.md](./ECOSYSTEM.md) — shared fields, density, Color by, starter columns, modular-but-one rules, and paste-ready prompts for existing and **new** visuals.
 
 ## AppSource legal pages (copied from `public/` on build)
 
