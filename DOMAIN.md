@@ -124,7 +124,7 @@ Starter Excels only include columns PMs keep up to date:
 | Progress | `progress` | **0–100** in samples (visuals also accept 0–1) |
 | Group | `group` | Phase / parent |
 | Resource / Project lead | `resource` | Task List display: **Project lead** |
-| RAG | `status` | Task List / Projects sheet only |
+| RAG | `status` | Optional suite role (Task List uses it today) |
 
 **Not in starters** (visuals still support them): Duration, Tooltips. Add those later if needed — do not put unused columns in the starter model.
 
