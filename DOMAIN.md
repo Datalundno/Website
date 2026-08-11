@@ -81,7 +81,7 @@ Samme A/CNAME-oppsett, eller en videresending til `https://datalund.no`.
 1. Repo → **Settings → Pages**: Source = **GitHub Actions**.
 2. Custom domain = `datalund.no` (the `public/CNAME` file ships in the build).
 3. Enable **Enforce HTTPS** when DNS is green.
-4. Confirm these AppSource URLs resolve:
+4. Confirm these legal / download URLs resolve (also used as AppSource Help + Support links when listing):
    - https://datalund.no/visuals/gantt/
    - https://datalund.no/visuals/resource-load/
    - https://datalund.no/visuals/task-list/
@@ -92,6 +92,16 @@ Samme A/CNAME-oppsett, eller en videresending til `https://datalund.no`.
    - https://datalund.no/downloads/taskList.pbiviz
    - https://datalund.no/downloads/DataLundSuite.zip
    - https://datalund.no/downloads/DatalundSuiteSample.xlsx
+
+## Microsoft AppSource (P0 — not listed yet)
+
+As of 2026-08-11 the three visuals are **not** on Microsoft AppSource; distribution is direct `.pbiviz` from this site.
+Publishing via Partner Center (then certification) is the highest-impact distribution step:
+
+1. Create / use a Partner Center publisher account for DataLund.
+2. Submit each visual with Help URL = `/visuals/{gantt|resource-load|task-list}/`, Support = `/support/`, Privacy = `/privacy/`.
+3. After listing, add “Get it on AppSource” CTAs on the homepage and Help pages, and prefer AppSource for updates.
+4. Pursue certification (API ≥ 1.2, no external calls — already true for these visuals) so export to PowerPoint/PDF and subscription emails work.
 
 ## Sample data
 

@@ -563,6 +563,14 @@ code {
   font-size: 0.95rem;
 }
 
+.why {
+  border-top: 1px solid var(--line);
+}
+
+.why .fineprint {
+  margin-top: 1.1rem;
+}
+
 .get {
   border-top: 1px solid var(--line);
   background:
