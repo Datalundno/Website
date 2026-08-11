@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Show resource load over time in Power BI — DataLund</title>
+  <meta name="description" content="How to show who is busy when in Power BI with DataLund Resource Load: assignments, overlaps, and load badges on a timeline." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0F3D36" />
+  <meta name="author" content="DataLund" />
+  <link rel="canonical" href="https://datalund.no/guides/power-bi-resource-load/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:site_name" content="DataLund" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://datalund.no/guides/power-bi-resource-load/" />
+  <meta property="og:title" content="Show resource load over time in Power BI" />
+  <meta property="og:description" content="Use DataLund Resource Load to see people or teams on tasks over a clear timeline." />
+  <meta property="og:image" content="https://datalund.no/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Show resource load over time in Power BI" />
+  <meta name="twitter:description" content="Use DataLund Resource Load to see people or teams on tasks over a clear timeline." />
+  <meta name="twitter:image" content="https://datalund.no/og-image.jpg" />
+  <link rel="stylesheet" href="/legal.css" />
+  <link rel="stylesheet" href="/consent.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Show resource load over time in Power BI",
+    "description": "How to use DataLund Resource Load for capacity views in Power BI.",
+    "url": "https://datalund.no/guides/power-bi-resource-load/",
+    "author": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" },
+    "publisher": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" }
+  }
+  </script>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="/">DataLund</a>
+    <nav>
+      <a href="/visuals/gantt/">Gantt</a>
+      <a href="/visuals/resource-load/">Resource Load</a>
+      <a href="/visuals/task-list/">Task List</a>
+      <a href="/guides/" aria-current="page">Guides</a>
+      <a href="/support/">Support</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </header>
+  <article class="doc">
+    <p class="eyebrow"><a href="/guides/">Guides</a> · Resource Load</p>
+    <h1>Show resource load over time in Power BI</h1>
+    <p class="lede">
+      <a href="/visuals/resource-load/">DataLund Resource Load</a> answers
+      <em>who is busy when</em> — people or teams as rows, assignments as bars, overlaps stacked in swimlanes.
+    </p>
+
+    <h2>1. Install</h2>
+    <ol>
+      <li>
+        Download
+        <a href="/downloads/resourceLoad.pbiviz" data-analytics-download="resourceLoad.pbiviz">resourceLoad.pbiviz</a>.
+      </li>
+      <li>Power BI Desktop → <strong>Import a visual from a file</strong>.</li>
+    </ol>
+
+    <h2>2. Required fields</h2>
+    <ul>
+      <li><strong>Resource</strong> — person or team</li>
+      <li><strong>Task</strong></li>
+      <li><strong>Start Date</strong> and <strong>End Date</strong></li>
+    </ul>
+    <p class="meta">
+      Same suite names as Gantt — reuse the columns you already maintain.
+      Starter:
+      <a href="/downloads/ResourceLoadSampleData.xlsx" data-analytics-download="ResourceLoadSampleData.xlsx">ResourceLoadSampleData.xlsx</a>.
+    </p>
+
+    <h2>3. How load is shown</h2>
+    <ul>
+      <li>Overlapping assignments on one person stack in small vertical lanes.</li>
+      <li>A numeric <strong>load badge</strong> shows peak concurrent assignments in the visible window.</li>
+      <li>Optional progress fill when Progress is bound (0–1 or 0–100).</li>
+    </ul>
+
+    <h2>4. Format tips</h2>
+    <ul>
+      <li><strong>Color by</strong> — Single fill / By task / By concurrency</li>
+      <li><strong>Density</strong> — Compact / Comfortable / Large / Custom</li>
+      <li><strong>Time window</strong> — 3 / 6 / 9 / 12 months from today</li>
+    </ul>
+
+    <h2>Next</h2>
+    <p>
+      Put Resource Load next to
+      <a href="/guides/power-bi-gantt-milestones/">Gantt</a>
+      and
+      <a href="/guides/power-bi-project-overview/">Task List</a>
+      for a full overview page.
+    </p>
+
+    <p class="actions">
+      <a class="btn" href="/downloads/resourceLoad.pbiviz" download data-analytics-download="resourceLoad.pbiviz">Download Resource Load</a>
+      <a class="btn ghost" href="/visuals/resource-load/">Help</a>
+      <a class="btn ghost" href="/guides/">All guides</a>
+    </p>
+  </article>
+  <footer class="bar foot">
+    <p>
+      © 2026 DataLund ·
+      <a href="/guides/">Guides</a> ·
+      <a href="/privacy/#analytics" data-analytics-preferences>Analytics preferences</a>
+    </p>
+  </footer>
+  <script src="/js/consent-analytics.js" defer></script>
+</body>
+</html>

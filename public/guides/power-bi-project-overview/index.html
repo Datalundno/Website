@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Power BI project overview: Task List, Gantt, Resource Load — DataLund</title>
+  <meta name="description" content="Build a free Power BI project overview with DataLund Task List, Gantt, and Resource Load — one field model, three angles, cross-filter on one page." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0F3D36" />
+  <meta name="author" content="DataLund" />
+  <link rel="canonical" href="https://datalund.no/guides/power-bi-project-overview/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:site_name" content="DataLund" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://datalund.no/guides/power-bi-project-overview/" />
+  <meta property="og:title" content="Power BI project overview with Task List, Gantt, and Resource Load" />
+  <meta property="og:description" content="One workbook, three DataLund visuals: pick the project, see when, see who." />
+  <meta property="og:image" content="https://datalund.no/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Power BI project overview with DataLund" />
+  <meta name="twitter:description" content="One workbook, three visuals: pick the project, see when, see who." />
+  <meta name="twitter:image" content="https://datalund.no/og-image.jpg" />
+  <link rel="stylesheet" href="/legal.css" />
+  <link rel="stylesheet" href="/consent.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Power BI project overview: Task List, Gantt, and Resource Load",
+    "description": "How to build a suite page with DataLund visuals on one shared model.",
+    "url": "https://datalund.no/guides/power-bi-project-overview/",
+    "author": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" },
+    "publisher": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" }
+  }
+  </script>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="/">DataLund</a>
+    <nav>
+      <a href="/visuals/gantt/">Gantt</a>
+      <a href="/visuals/resource-load/">Resource Load</a>
+      <a href="/visuals/task-list/">Task List</a>
+      <a href="/guides/" aria-current="page">Guides</a>
+      <a href="/support/">Support</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </header>
+  <article class="doc">
+    <p class="eyebrow"><a href="/guides/">Guides</a> · Suite</p>
+    <h1>Project overview: Task List + Gantt + Resource Load</h1>
+    <p class="lede">
+      Task List picks the project. Gantt shows when. Resource Load shows who.
+      One overview — three angles — on a shared field model.
+    </p>
+
+    <h2>1. Get the suite files</h2>
+    <ol>
+      <li>
+        <a href="/downloads/DataLundSuite.zip" data-analytics-download="DataLundSuite.zip">DataLundSuite.zip</a>
+        — all three <code>.pbiviz</code> files.
+      </li>
+      <li>
+        <a href="/downloads/DatalundSuiteSample.xlsx" data-analytics-download="DatalundSuiteSample.xlsx">DatalundSuiteSample.xlsx</a>
+        — open the <strong>Start here</strong> sheet first, then load Projects + Tasks into Power BI.
+      </li>
+    </ol>
+
+    <h2>2. Import all three visuals</h2>
+    <p>
+      Import each <code>.pbiviz</code> from a file (Visualizations → … → Import a visual from a file).
+      Place Task List, Gantt, and Resource Load on the same report page.
+    </p>
+
+    <h2>3. Bind the shared model</h2>
+    <ul>
+      <li>
+        <strong>Task List</strong> — Project (required); keep RAG, Project lead, Progress, dates up to date.
+        See <a href="/visuals/task-list/">Task List help</a>.
+      </li>
+      <li>
+        <strong>Gantt</strong> — Task, Start Date, End Date on the Tasks grain.
+        See <a href="/guides/power-bi-gantt-milestones/">Gantt guide</a>.
+      </li>
+      <li>
+        <strong>Resource Load</strong> — Resource, Task, Start Date, End Date.
+        See <a href="/guides/power-bi-resource-load/">Resource Load guide</a>.
+      </li>
+    </ul>
+    <p class="meta">
+      Role names stay stable across visuals even when labels differ
+      (Project = Task, Project lead = Resource, RAG = status).
+      Details: <a href="/support/">Support → Shared suite fields</a>.
+    </p>
+
+    <h2>4. Cross-filter the page</h2>
+    <p>
+      Click a project in Task List — Gantt and Resource Load should follow.
+      That is the suite test: one selection, three angles on the same work.
+    </p>
+
+    <h2>Why not one mega-visual?</h2>
+    <p>
+      Each visual keeps one job. You can use Gantt alone, or grow into the full overview
+      without rebuilding your columns. Free to download; no network calls from the visuals.
+    </p>
+
+    <p class="actions">
+      <a class="btn" href="/downloads/DataLundSuite.zip" download data-analytics-download="DataLundSuite.zip">Download suite</a>
+      <a class="btn ghost" href="/downloads/DatalundSuiteSample.xlsx" download data-analytics-download="DatalundSuiteSample.xlsx">Sample Excel</a>
+      <a class="btn ghost" href="/guides/">All guides</a>
+    </p>
+  </article>
+  <footer class="bar foot">
+    <p>
+      © 2026 DataLund ·
+      <a href="/guides/">Guides</a> ·
+      <a href="/privacy/#analytics" data-analytics-preferences>Analytics preferences</a>
+    </p>
+  </footer>
+  <script src="/js/consent-analytics.js" defer></script>
+</body>
+</html>

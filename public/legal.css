@@ -21,6 +21,17 @@ body {
   line-height: 1.55;
 }
 a { color: var(--accent); }
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.btn:focus-visible,
+nav a:focus-visible,
+.brand:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 .bar {
   display: flex;
   align-items: center;
@@ -48,6 +59,10 @@ a { color: var(--accent); }
 nav { display: flex; gap: 1rem; flex-wrap: wrap; }
 nav a { text-decoration: none; color: var(--muted); }
 nav a:hover { color: var(--ink); }
+nav a[aria-current="page"] {
+  color: var(--ink);
+  font-weight: 600;
+}
 .doc {
   width: min(720px, calc(100% - 2rem));
   margin: 2.2rem auto 3rem;

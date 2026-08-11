@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Free Power BI Gantt chart with milestones — DataLund</title>
+  <meta name="description" content="How to install DataLund Gantt, a free Power BI Gantt chart visual, bind Task / Start / End, and show milestones with zero duration." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0F3D36" />
+  <meta name="author" content="DataLund" />
+  <link rel="canonical" href="https://datalund.no/guides/power-bi-gantt-milestones/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta property="og:site_name" content="DataLund" />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://datalund.no/guides/power-bi-gantt-milestones/" />
+  <meta property="og:title" content="Free Power BI Gantt chart with milestones" />
+  <meta property="og:description" content="Install DataLund Gantt, bind fields, and mark milestones with the same start and end date." />
+  <meta property="og:image" content="https://datalund.no/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Free Power BI Gantt chart with milestones" />
+  <meta name="twitter:description" content="Install DataLund Gantt, bind fields, and mark milestones with the same start and end date." />
+  <meta name="twitter:image" content="https://datalund.no/og-image.jpg" />
+  <link rel="stylesheet" href="/legal.css" />
+  <link rel="stylesheet" href="/consent.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Free Power BI Gantt chart with milestones",
+    "description": "How to install DataLund Gantt and show milestones in Power BI.",
+    "url": "https://datalund.no/guides/power-bi-gantt-milestones/",
+    "author": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" },
+    "publisher": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" }
+  }
+  </script>
+</head>
+<body>
+  <header class="bar">
+    <a class="brand" href="/">DataLund</a>
+    <nav>
+      <a href="/visuals/gantt/">Gantt</a>
+      <a href="/visuals/resource-load/">Resource Load</a>
+      <a href="/visuals/task-list/">Task List</a>
+      <a href="/guides/" aria-current="page">Guides</a>
+      <a href="/support/">Support</a>
+      <a href="/privacy/">Privacy</a>
+    </nav>
+  </header>
+  <article class="doc">
+    <p class="eyebrow"><a href="/guides/">Guides</a> · Gantt</p>
+    <h1>Free Power BI Gantt chart with milestones</h1>
+    <p class="lede">
+      Use <a href="/visuals/gantt/">DataLund Gantt</a> when you want tasks, progress, groups, and milestones
+      on one timeline — without a paid visual or a custom Deneb spec.
+    </p>
+
+    <h2>1. Install the visual</h2>
+    <ol>
+      <li>
+        Download
+        <a href="/downloads/ganttChart.pbiviz" data-analytics-download="ganttChart.pbiviz">ganttChart.pbiviz</a>
+        (or the
+        <a href="/downloads/DataLundSuite.zip" data-analytics-download="DataLundSuite.zip">full suite zip</a>).
+      </li>
+      <li>In Power BI Desktop: <strong>Visualizations → … → Import a visual from a file</strong>.</li>
+      <li>Pick the <code>.pbiviz</code> and add DataLund Gantt to the page.</li>
+    </ol>
+
+    <h2>2. Bind the minimum fields</h2>
+    <ul>
+      <li><strong>Task</strong> — work item name</li>
+      <li><strong>Start Date</strong></li>
+      <li><strong>End Date</strong></li>
+    </ul>
+    <p class="meta">
+      Optional later: Group, Resource, Progress (0–1 or 0–100).
+      Starter file:
+      <a href="/downloads/GanttSampleData.xlsx" data-analytics-download="GanttSampleData.xlsx">GanttSampleData.xlsx</a>
+      — open <strong>Start here</strong> first.
+    </p>
+
+    <h2>3. Mark milestones</h2>
+    <p>
+      A milestone is a zero-duration task: set <strong>Start Date</strong> and <strong>End Date</strong>
+      to the same day. DataLund Gantt draws it as a milestone marker on the timeline.
+    </p>
+
+    <h2>4. Useful format options</h2>
+    <ul>
+      <li><strong>Density</strong> — Compact / Comfortable / Large / Custom (Format → General)</li>
+      <li><strong>Color by</strong> — Default / Resource / Group / Task</li>
+      <li><strong>Time window</strong> — optional 3 / 6 / 9 / 12 months from today</li>
+    </ul>
+
+    <h2>Next</h2>
+    <p>
+      Add
+      <a href="/guides/power-bi-resource-load/">Resource Load</a>
+      for capacity, or build the full
+      <a href="/guides/power-bi-project-overview/">project overview</a>
+      with Task List.
+    </p>
+
+    <p class="actions">
+      <a class="btn" href="/downloads/ganttChart.pbiviz" download data-analytics-download="ganttChart.pbiviz">Download Gantt</a>
+      <a class="btn ghost" href="/visuals/gantt/">Gantt help</a>
+      <a class="btn ghost" href="/guides/">All guides</a>
+    </p>
+  </article>
+  <footer class="bar foot">
+    <p>
+      © 2026 DataLund ·
+      <a href="/guides/">Guides</a> ·
+      <a href="/privacy/#analytics" data-analytics-preferences>Analytics preferences</a>
+    </p>
+  </footer>
+  <script src="/js/consent-analytics.js" defer></script>
+</body>
+</html>
