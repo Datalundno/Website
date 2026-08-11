@@ -27,27 +27,67 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Support — DataLund",
-    "url": "https://datalund.no/support/",
-    "description": "Support for DataLund Power BI visuals including DataLund Gantt chart, Resource Load, and Task List.",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "DataLund",
-      "email": "support@datalund.no",
-      "url": "https://datalund.no/"
-    }
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "name": "Support — DataLund",
+        "url": "https://datalund.no/support/",
+        "description": "Support for DataLund Power BI visuals including DataLund Gantt chart, Resource Load, and Task List.",
+        "mainEntity": {
+          "@type": "Organization",
+          "name": "DataLund",
+          "email": "support@datalund.no",
+          "url": "https://datalund.no/",
+          "sameAs": [
+            "https://github.com/Datalundno",
+            "https://github.com/Datalundno/GANTT",
+            "https://github.com/Datalundno/Resource-Load",
+            "https://github.com/Datalundno/Task-List"
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Where do I start with DataLund visuals?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Download DatalundSuiteSample.xlsx, open the Start here sheet, then import the visuals from datalund.no. See the Guides for step-by-step help."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do DataLund visuals call the internet?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. They run in the Power BI sandbox with no network access."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are DataLund visuals on Microsoft AppSource?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not yet. Download the latest .pbiviz from datalund.no and import it from a file. An AppSource listing is in progress. See the changelog for versions."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 </head>
 <body>
-  <header class="bar">
+    <header class="bar">
     <a class="brand" href="/">DataLund</a>
     <nav>
       <a href="/visuals/gantt/">Gantt</a>
       <a href="/visuals/resource-load/">Resource Load</a>
       <a href="/visuals/task-list/">Task List</a>
       <a href="/guides/">Guides</a>
+      <a href="/changelog/">Changelog</a>
       <a href="/support/" aria-current="page">Support</a>
       <a href="/privacy/">Privacy</a>
     </nav>
@@ -124,7 +164,12 @@
       </li>
       <li>
         <strong>Are they on Microsoft AppSource?</strong>
-        Not yet — download the <code>.pbiviz</code> files from this site for now.
+        Not yet. DataLund visuals are distributed today as direct <code>.pbiviz</code> downloads from
+        datalund.no. They run entirely inside the Power BI sandbox and make
+        <strong>no network calls</strong> — the same security property Microsoft tests for in certification.
+        An AppSource listing is in progress; until then, download the latest <code>.pbiviz</code> here and
+        import it via Visualizations → … → Import a visual from a file.
+        Version history is on the <a href="/changelog/">changelog</a>.
       </li>
       <li>
         <strong>What changed in the latest build?</strong>
@@ -135,10 +180,11 @@
     <h2>Response time</h2>
     <p>Usually within 2 business days (CET).</p>
   </article>
-  <footer class="bar foot">
+    <footer class="bar foot">
     <p>
       © 2026 DataLund ·
-      <a href="/privacy/">Privacy</a> ·
+      <a href="/guides/">Guides</a> ·
+      <a href="/changelog/">Changelog</a> ·
       <a href="/privacy/#analytics" data-analytics-preferences>Analytics preferences</a>
     </p>
   </footer>

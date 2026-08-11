@@ -27,23 +27,47 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "Power BI project overview: Task List, Gantt, and Resource Load",
-    "description": "How to build a suite page with DataLund visuals on one shared model.",
-    "url": "https://datalund.no/guides/power-bi-project-overview/",
-    "author": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" },
-    "publisher": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" }
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Power BI project overview: Task List, Gantt, and Resource Load",
+        "description": "How to build a suite page with DataLund visuals on one shared model.",
+        "url": "https://datalund.no/guides/power-bi-project-overview/",
+        "author": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" },
+        "publisher": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" }
+      },
+      {
+        "@type": "HowTo",
+        "name": "Build a Power BI project overview with DataLund",
+        "description": "Import the suite, bind the shared model, and cross-filter Task List, Gantt, and Resource Load.",
+        "step": [
+          { "@type": "HowToStep", "name": "Get suite files", "text": "Download DataLundSuite.zip and DatalundSuiteSample.xlsx; open Start here first." },
+          { "@type": "HowToStep", "name": "Import visuals", "text": "Import all three .pbiviz files and place them on one report page." },
+          { "@type": "HowToStep", "name": "Bind the shared model", "text": "Bind Task List, Gantt, and Resource Load using the suite field names." },
+          { "@type": "HowToStep", "name": "Cross-filter", "text": "Click a project in Task List and confirm Gantt and Resource Load follow." }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://datalund.no/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://datalund.no/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Project overview", "item": "https://datalund.no/guides/power-bi-project-overview/" }
+        ]
+      }
+    ]
   }
   </script>
 </head>
 <body>
-  <header class="bar">
+    <header class="bar">
     <a class="brand" href="/">DataLund</a>
     <nav>
       <a href="/visuals/gantt/">Gantt</a>
       <a href="/visuals/resource-load/">Resource Load</a>
       <a href="/visuals/task-list/">Task List</a>
       <a href="/guides/" aria-current="page">Guides</a>
+      <a href="/changelog/">Changelog</a>
       <a href="/support/">Support</a>
       <a href="/privacy/">Privacy</a>
     </nav>
@@ -113,10 +137,11 @@
       <a class="btn ghost" href="/guides/">All guides</a>
     </p>
   </article>
-  <footer class="bar foot">
+    <footer class="bar foot">
     <p>
       © 2026 DataLund ·
       <a href="/guides/">Guides</a> ·
+      <a href="/changelog/">Changelog</a> ·
       <a href="/privacy/#analytics" data-analytics-preferences>Analytics preferences</a>
     </p>
   </footer>

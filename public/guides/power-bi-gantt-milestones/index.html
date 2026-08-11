@@ -27,23 +27,47 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "Free Power BI Gantt chart with milestones",
-    "description": "How to install DataLund Gantt and show milestones in Power BI.",
-    "url": "https://datalund.no/guides/power-bi-gantt-milestones/",
-    "author": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" },
-    "publisher": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" }
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Free Power BI Gantt chart with milestones",
+        "description": "How to install DataLund Gantt and show milestones in Power BI.",
+        "url": "https://datalund.no/guides/power-bi-gantt-milestones/",
+        "author": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" },
+        "publisher": { "@type": "Organization", "name": "DataLund", "url": "https://datalund.no/" }
+      },
+      {
+        "@type": "HowTo",
+        "name": "Install a free Power BI Gantt chart with milestones",
+        "description": "Install DataLund Gantt, bind Task / Start / End, and mark milestones with zero duration.",
+        "step": [
+          { "@type": "HowToStep", "name": "Install the visual", "text": "Download ganttChart.pbiviz and import it in Power BI Desktop via Visualizations → Import a visual from a file." },
+          { "@type": "HowToStep", "name": "Bind minimum fields", "text": "Bind Task, Start Date, and End Date. Optional: Group, Resource, Progress." },
+          { "@type": "HowToStep", "name": "Mark milestones", "text": "Set Start Date and End Date to the same day for zero-duration milestone tasks." },
+          { "@type": "HowToStep", "name": "Format", "text": "Use Density, Color by, and optional time window under Format → General." }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://datalund.no/" },
+          { "@type": "ListItem", "position": 2, "name": "Guides", "item": "https://datalund.no/guides/" },
+          { "@type": "ListItem", "position": 3, "name": "Gantt with milestones", "item": "https://datalund.no/guides/power-bi-gantt-milestones/" }
+        ]
+      }
+    ]
   }
   </script>
 </head>
 <body>
-  <header class="bar">
+    <header class="bar">
     <a class="brand" href="/">DataLund</a>
     <nav>
       <a href="/visuals/gantt/">Gantt</a>
       <a href="/visuals/resource-load/">Resource Load</a>
       <a href="/visuals/task-list/">Task List</a>
       <a href="/guides/" aria-current="page">Guides</a>
+      <a href="/changelog/">Changelog</a>
       <a href="/support/">Support</a>
       <a href="/privacy/">Privacy</a>
     </nav>
@@ -109,10 +133,11 @@
       <a class="btn ghost" href="/guides/">All guides</a>
     </p>
   </article>
-  <footer class="bar foot">
+    <footer class="bar foot">
     <p>
       © 2026 DataLund ·
       <a href="/guides/">Guides</a> ·
+      <a href="/changelog/">Changelog</a> ·
       <a href="/privacy/#analytics" data-analytics-preferences>Analytics preferences</a>
     </p>
   </footer>
